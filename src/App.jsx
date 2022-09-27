@@ -1,5 +1,5 @@
 import './App.css';
-import {Routes, Route, Link} from 'react-dom'
+import {Routes, Route, Link} from 'react-router-dom'
 import Register from './registration/home'
 
 function App() {
