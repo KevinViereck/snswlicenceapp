@@ -24,7 +24,7 @@ export default function Register(){
             body: JSON.stringify({ firstName, lastName, email, mobile, password }),
           };
           
-        let response = await fetch(`${server}/user`, config);
+        let response = await fetch(`http://localhost:8080/user`, config);
 
         let json = response.json()
             alert("User Registered"); 
