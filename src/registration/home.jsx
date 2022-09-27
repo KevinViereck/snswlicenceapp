@@ -8,19 +8,19 @@ export default function Register(){
     const[mobileNumber, setMobileNumber] = useState()
     const[password,setPassword] = useState('')
 
-    function getData(){
+    // function getData(){
 
-        const myHeaders = new headers()
-        myHeaders.append('content-type','application/json')
+    //     const myHeaders = new headers()
+    //     myHeaders.append('content-type','application/json')
 
-        const requestOptions ={
-            method: 'POST',
-            headers : myHeaders,
-        }
+    //     const requestOptions ={
+    //         method: 'POST',
+    //         headers : myHeaders,
+    //     }
 
-        const response = fetch(`http://localhost:8080/`,requestOptions)
+    //     const response = fetch(`http://localhost:8080`,requestOptions)
         
-    }
+    // }
 
     return( 
         <>
