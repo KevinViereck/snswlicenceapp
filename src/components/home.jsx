@@ -8,6 +8,10 @@ export default function register(){
     const[mobileNumber, setMobileNumber] = useState()
     const[password,setPassword] = useState('')
 
+    function getData(){
+        
+    }
+
     return( 
         <>
             <h1> Register </h1>
