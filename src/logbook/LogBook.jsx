@@ -9,6 +9,7 @@ export default function LogBook(){
             <h1> Issue Learner Licence </h1>
             <p> You currently do not have a licence </p>
             <p> Need to register  </p>
+            
         </>
     )
 }
