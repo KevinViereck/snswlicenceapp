@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function register(){
+export default function Register(){
 
     const[firstname, setFirstname] = useState("")
     const[lastname, setLastname] = useState('')
