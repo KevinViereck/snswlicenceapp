@@ -9,6 +9,16 @@ export default function Register(){
     const[password,setPassword] = useState('')
 
     function getData(){
+
+        const myHeaders = new headers()
+        myHeaders.append('content-type','application/json')
+
+        const requestOptions ={
+            method: 'POST',
+            headers : myHeaders,
+        }
+
+        const response = fetch(`http://localhost:8080/`,requestOptions)
         
     }
 
