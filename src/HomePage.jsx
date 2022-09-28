@@ -4,7 +4,7 @@ export default function HomePage(){
             <h1> Welcome to the home screen </h1>
             <p> Logo </p>
             <p> Register Button </p>
-            <p> </p>
+            <p>  Login (if already registered) </p>
         </>
     )
 }
