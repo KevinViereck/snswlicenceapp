@@ -3,11 +3,13 @@
 }
 
 .register-box {
-  @apply rounded;
+  @apply bg-gray-200 rounded w-full
+   text-gray-700 focus:outline-none border-b-4 border-gray-300
+    focus:border-red-400 transition duration-500 px-3 pb-3;
 }
 
 .register-button {
-  @apply text-red-600;
+  @apply text-black;
 }
 
 .App {
