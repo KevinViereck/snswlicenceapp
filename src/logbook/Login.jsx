@@ -8,7 +8,7 @@ export default function Login(){
     const navigate = useNavigate()
 
 
-    async function getLogin(){
+    function getLogin(){
         
         const config = {
             method: "POST",
@@ -16,8 +16,18 @@ export default function Login(){
             body: JSON.stringify({email,password})
         }
 
-        const response = await fetch(`http://localhost:8080/user/login`,config)
-        const result = await response.json()
+        const response =  fetch(`http://localhost:8080/user/login`,config)
+                 .then ((r) => {
+                    if(r.status != 200){
+                        throw Error("Invalid Login")
+                    }
+                    return r.json()
+                 })
+                 .then ((j) => {
+                    localStorage.setItem("token", j)
+                    return j
+                 })
+        navigate("/logbook")         
 
     }
 

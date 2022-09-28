@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import PracticeLogEntry from "./PracticeLogEntry";
 
 export default function LogBook(){
 
@@ -25,11 +26,10 @@ export default function LogBook(){
 
     return(
         <>
-            <h1> Issue Learner Licence </h1>
-            <p> You currently do not have a licence </p>
-            <p> Need to register  </p>
+            
             <label> Date Issued: </label>
             <input type="date" value={dateIssued}/>
+            <PracticeLogEntry />
 
         </>
     )
