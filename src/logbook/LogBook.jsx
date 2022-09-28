@@ -4,17 +4,14 @@ import { Link, useParams } from "react-router-dom";
 export default function LogBook(){
 
     const[dateIssued, setDateIssued] = useState('')
-    const[practiceLogEntries, setPracticeLogEntries] = useState([''])
     const[userId,setUserId] = useState('')
-
-    const {_id} = useParams()
 
     async function getLogBook(){
 
         const config = {
             method: "POST",
             headers: {'Content-type':'application/json'},
-            body: JSON.stringify ({ dateIssued,practiceLogEntries})
+            body: JSON.stringify ({ dateIssued,userId})
 
         }
 
@@ -31,6 +28,7 @@ export default function LogBook(){
             <h1> Issue Learner Licence </h1>
             <p> You currently do not have a licence </p>
             <p> Need to register  </p>
+            <p> </p>
 
         </>
     )
