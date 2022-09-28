@@ -31,7 +31,7 @@ export default function Login(){
                 <input type="password" value={password} onChange ={(e) => setPassword(e.target.value)} />
             </div>
             <div>
-                <button> Login </button>
+                <button onClick={getLogin}> Login </button>
             </div>
         </>
     )
