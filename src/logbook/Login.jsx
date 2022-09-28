@@ -17,9 +17,7 @@ export default function Login(){
         }
 
         const response = await fetch(`http://localhost:8080/user/login`,config)
-        const result = response.json()
-        alert("logged in as")
-        navigate("/logbookpage")
+        const result = await response.json()
 
     }
 

@@ -25,3 +25,7 @@
 .right{
   @apply text-right
 }
+
+.img{
+  @apply object-fill h-48 w-96
+}

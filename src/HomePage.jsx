@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import nswlogo from './img/nswlogo.png'
 
 export default function HomePage(){
     
@@ -6,6 +7,8 @@ export default function HomePage(){
         <div>
             <section>
             <h4 className="left"> Home </h4>
+            <img  className ="img" src={nswlogo} alt="NSW Government" />
+            
             </section>
             <section>
             <p className="p"> Welcome to the NSW Driving Licence Application </p>

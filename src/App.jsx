@@ -3,6 +3,7 @@ import {Routes, Route, Link} from 'react-router-dom'
 import Register from './registration/Register'
 import HomePage from './HomePage';
 import Login from './logbook/Login';
+import LogBook from './logbook/LogBook';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={< HomePage />} /> 
         <Route path="/register" element={< Register />} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/logbook" element={<LogBook />} />
 
       </Routes>
     </div>
