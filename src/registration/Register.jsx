@@ -36,27 +36,26 @@ export default function Register(){
         <>
           
            <div className="register-main"> 
-            <div>
-                <br />
+               
                 <label> First Name: </label>
-                <input className="register-box" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                <br/>
+                <input class="register-box" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                
                 <label> Last Name: </label>
-                <input className="register-box" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} /> 
-                <br/>
+                <input class="register-box" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} /> 
+                
                 <label> Email: </label>
-                <input className="register-box" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <br/>
+                <input class="register-box" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+            
                 <label> Mobile Number:</label>
-                <input className="register-box" type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} />
-                <br/>
+                <input class="register-box" type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} />
+            
                 <label> Password: </label>
-                <input className="register-box" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <br/>
+                <input class="register-box" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            
                 <button className="register-button" onClick={getData}> Register </button>
             </div>
+          
             
-            </div>
         </>
     )
 }
