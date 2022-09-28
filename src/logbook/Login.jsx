@@ -1,9 +1,11 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function Login(){
 
     const[email, setEmail] = useState('')
     const[password,setPassword] = useState('')
+    const navigate = useNavigate()
 
 
     async function getLogin(){
@@ -17,6 +19,7 @@ export default function Login(){
         const response = await fetch(`http://localhost:8080/user/login`,config)
         const result = response.json()
         alert("logged in as")
+        navigate("/")
 
     }
 
