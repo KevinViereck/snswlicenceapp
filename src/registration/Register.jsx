@@ -7,6 +7,7 @@ export default function Register(){
     const[firstName, setFirstName] = useState("")
     const[lastName, setLastName] = useState('')
     const[email,setEmail] = useState('')
+    const[dateOfBirth, setDateOfBirth] = useState('')
     const[mobile, setMobile] = useState()
     const[password,setPassword] = useState('')
 
@@ -48,6 +49,9 @@ export default function Register(){
                 
                 <label> Email: </label>
                 <input class="register-box" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+
+                <label> Date of Birth: </label>
+                <input class= "register-box" type= "date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)}/>
             
                 <label> Mobile Number:</label>
                 <input class="register-box" type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} />
