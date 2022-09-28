@@ -19,11 +19,21 @@ export default function PracticeLogEntry(){
                     </tr>
                 </thead>
                 <tbody>
-                    <tr> 
+
                     {
-                        practiceLogEntries.map( (le) => <td> {le.startTime}</td>)
+                        practiceLogEntries.map((le) => (
+                            <tr> 
+                                <td> {le.startTime} </td>
+                                <td> {le.endTime} </td>
+                                <td> {le.endTime - le.startTime} </td>
+                            </tr>
+                        ))
+
+
+
+
                     }
-                    </tr>
+                
                 </tbody>
             </table>
         </>
