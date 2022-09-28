@@ -28,7 +28,8 @@ export default function LogBook(){
             <h1> Issue Learner Licence </h1>
             <p> You currently do not have a licence </p>
             <p> Need to register  </p>
-            <p> </p>
+            <label> Date Issued: </label>
+            <input type="date" value={dateIssued}/>
 
         </>
     )
