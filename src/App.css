@@ -13,3 +13,15 @@
 .App {
   @apply text-blue-500;
 }
+
+.left{
+  @apply text-left 
+}
+
+.p{
+  @apply text-center 
+}
+
+.right{
+  @apply text-right
+}
