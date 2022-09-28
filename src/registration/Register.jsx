@@ -1,4 +1,4 @@
-
+import '../App.css';
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
@@ -35,23 +35,27 @@ export default function Register(){
     return( 
         <>
           
-           <div> 
+           <div className="register-main"> 
+            <div>
+                <br />
                 <label> First Name: </label>
-                <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                <input className="register-box" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                 <br/>
                 <label> Last Name: </label>
-                <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} /> 
+                <input className="register-box" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} /> 
                 <br/>
                 <label> Email: </label>
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input className="register-box" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <br/>
                 <label> Mobile Number:</label>
-                <input type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} />
+                <input className="register-box" type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} />
                 <br/>
                 <label> Password: </label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input className="register-box" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <br/>
-                <button onClick={getData}> Register </button>
+                <button className="register-button" onClick={getData}> Register </button>
+            </div>
+            
             </div>
         </>
     )

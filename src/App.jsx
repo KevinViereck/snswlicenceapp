@@ -5,8 +5,11 @@ import HomePage from './HomePage';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Issue Licence</h1>
+    <div class="App bg-gradient-to-t from-indigo-100 via-sky-600 to-blue-900 h-screen w-screen">
+    
+      <h1 class="text-3xl">Welcome to the NSW Driving Licence Application </h1>
+      <br></br>
+   
       <Routes>
         <Route path="/" element={< HomePage />} /> 
         <Route path="/register" element={< Register />} />
