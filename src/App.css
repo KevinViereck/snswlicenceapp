@@ -1,5 +1,5 @@
 .register-main {
-  @apply text-white flex flex-col justify-center items-center;
+  @apply bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl;
 }
 
 .register-box {
