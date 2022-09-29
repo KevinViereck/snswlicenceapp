@@ -5,13 +5,8 @@ import PracticeLogEntry from "./PracticeLogEntry";
 export default function LogBook(){
 
    const[logbook, setLogBook] = useState()
-
-
    
-
     async function getLogBook(){
-
-
         var myHeaders = new Headers();
         myHeaders.append("Authorization", "Bearer "+localStorage.getItem("token"));
 
@@ -19,22 +14,17 @@ export default function LogBook(){
             method: 'GET',
             headers: myHeaders,
             redirect: 'follow'
-        };
-
-
-        
+        };       
         const response = await fetch(`http://localhost:8080/logbook/email`,config)
         const result =  await response.json()
         setLogBook(result)
-
-
-        
     }
 
     useEffect(() => { 
       getLogBook();
     }, []);
 
+    
     return(
         <>
            {
