@@ -24,9 +24,9 @@ export default function Login() {
       })
       .then((j) => {
         localStorage.setItem("token", j);
-        return j;
+        navigate("/logbook")
       });
-    navigate("/logbook");
+    
   }
 
   return (
