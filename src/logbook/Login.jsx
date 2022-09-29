@@ -121,6 +121,14 @@ export default function Login() {
         </div>
       </div>
 <br></br>
+
+
+
+<div className="register-main"> 
+<section>
+     
+     <p className="text-gray-600 pt-2">Please login here</p>
+     </section>
 <section className="mt-10">
         <label>Email:</label>
         <input className="register-box" type="text"
@@ -136,11 +144,11 @@ export default function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      
+         <button onClick={getLogin}> Login </button>
       </section>
       
-   
-        <button onClick={getLogin}> Login </button>
+   </div>
+     
   
 
     </>
