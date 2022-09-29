@@ -1,36 +1,49 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
 import PracticeLogEntry from "./PracticeLogEntry";
 
 export default function LogBook(){
 
-    const[dateIssued, setDateIssued] = useState('')
-    const[userId,setUserId] = useState('')
+   const[logbook, setLogBook] = useState()
+
+
+   
 
     async function getLogBook(){
 
+
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", "Bearer "+localStorage.getItem("token"));
+
         const config = {
-            method: "POST",
-            headers: {'Content-type':'application/json'},
-            body: JSON.stringify ({ dateIssued,userId})
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
 
-        }
 
-        const response = await fetch(`http://localhost:8080/logbook`,config)
-        const result = response.json()
+        
+        const response = await fetch(`http://localhost:8080/logbook/email`,config)
+        const result =  await response.json()
+        setLogBook(result)
 
-        alert()
+
+        
     }
 
-
+    useEffect(() => { 
+      getLogBook();
+    }, []);
 
     return(
         <>
-            
-            <label> Date Issued: </label>
-            <input type="date" value={dateIssued}/>
-            <PracticeLogEntry />
-
+           {
+             logbook && <>
+             <label> Date Issued: </label>
+             <div> {logbook.dateIssued }</div>
+             <PracticeLogEntry logbook={logbook} />
+             </>
+           } 
         </>
     )
 }

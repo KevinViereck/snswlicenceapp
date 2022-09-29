@@ -1,22 +1,15 @@
 import { useEffect, useState } from "react"
 
-export default function PracticeLogEntry(){
+export default function PracticeLogEntry(props){
 
     const[practiceLogEntries, setPracticeLogEntries] = useState([''])
     const[startTime, setStartTime] = useState()
     const[endTime, setEndTime] = useState()
     const[instructorLed, setInstructorLed] = useState()
 
-useEffect(() => {
-    getLogBook();
-}, []);
 
 
-function getLogBook(){
-    fetch ('http://localhost:8080/logbook', {method: "GET"})
-    .then (res => res.json())
-    .then((result) => setPracticeLogEntries(result));
-}
+
 
     return(
         <>
@@ -32,11 +25,11 @@ function getLogBook(){
                 <tbody>
 
                     {
-                        practiceLogEntries.map((le) => (
+                        props.logbook.practiceLogEntries.map((le) => (
                             <tr> 
-                                <td> {le.startTime} </td>
-                                <td> {le.endTime} </td>
-                                <td> {le.endTime - le.startTime} </td>
+                                <td> {new Date(le.startTime).toLocaleString()} </td>
+                                <td> {new Date(le.endTime).toLocaleString()} </td>
+                                <td> {(le.endTime - le.startTime) / 1000 / 60 / 60} </td>
                             </tr>
                         ))
 
