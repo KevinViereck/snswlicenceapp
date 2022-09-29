@@ -41,6 +41,7 @@ export default function Register(){
            <h3 class="font-bold text-2xl">Welcome to the NSW Driving Licence Application</h3>
            <p class="text-gray-600 pt-2">Please register here</p>
            </section>
+         
            <section class="mt-10">
                 <label> First Name: </label>
                 <input class="register-box" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
@@ -62,6 +63,7 @@ export default function Register(){
                 </section>
                 <button className="register-button" onClick={getData}> Submit Registration </button>
             </div>
+       
           
             
         </>

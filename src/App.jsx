@@ -7,12 +7,13 @@ import LogBook from './logbook/LogBook';
 
 function App() {
   return (
-    <div class="App bg-gradient-to-t from-indigo-100 via-sky-600 to-blue-900 h-screen w-screen">
+    
+    <div className="App bg-gradient-to-t from-indigo-100 via-sky-600 to-blue-900 h-screen w-screen">
+    <br></br>
     <center>
-      <h1 class="text-3xl">Welcome to the NSW Driving Licence Application </h1>
-      </center>
-      <br></br>
-   
+      <h1 className="font-light text-2xl ">Welcome to the NSW Driving Licence Application Page </h1>
+     <br />
+
       <Routes>
         <Route path="/" element={< HomePage />} /> 
         <Route path="/register" element={< Register />} />
@@ -20,6 +21,7 @@ function App() {
         <Route path="/logbook" element={<LogBook />} />
 
       </Routes>
+      </center>
     </div>
   );
 }
