@@ -13,21 +13,6 @@
 }
 
 .App {
-  @apply text-blue-500;
+  @apply text-blue-600/100;
 }
 
-.left{
-  @apply text-left 
-}
-
-.p{
-  @apply text-center 
-}
-
-.right{
-  @apply text-right
-}
-
-.img{
-  @apply object-fill h-48 w-96
-}
