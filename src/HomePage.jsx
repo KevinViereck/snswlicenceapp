@@ -42,7 +42,11 @@ export default function HomePage() {
             <Link to="/login"> Login </Link>{" "}
           </div>
         </div>
+    
       </div>
+
+
     </div>
+    
   );
 }

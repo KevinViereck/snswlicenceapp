@@ -24,9 +24,8 @@ export default function Login() {
       })
       .then((j) => {
         localStorage.setItem("token", j);
-        navigate("/logbook")
+        navigate("/logbook");
       });
-    
   }
 
   return (
@@ -77,7 +76,8 @@ export default function Login() {
                 <label>Your Email</label>
                 <input
                   className="register-box"
-                  type="text" placeholder="email@email.com"
+                  type="text"
+                  placeholder="email@email.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
