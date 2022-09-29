@@ -1,6 +1,8 @@
 import '../App.css';
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import nswlogo from "../img/nswlogo.png";
+import { Link } from "react-router-dom";
 
 export default function Register(){
 
@@ -35,37 +37,127 @@ export default function Register(){
 
     return( 
         <>
-          
+
+    <div className="content-center">
+      <section>
+        <img
+          className="nsw-logo"
+          src={nswlogo}
+          width={200}
+          height={200}
+          alt="NSW Government"
+        />
+      </section>
+      <br></br>
+      <div className="flex items-center justify-center">
+        <div
+          class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg"
+          role="group"
+        >
+          <div
+            aria-current="page"
+            className="
+        rounded-l
+        px-6
+        py-2.5
+        bg-blue-900
+        text-white
+        font-medium
+        text-xs
+        leading-tight
+        uppercase
+        hover:bg-blue-700
+        focus:bg-blue-700 focus:outline-none focus:ring-0
+        active:bg-blue-800
+        transition
+        duration-150
+        ease-in-out
+      "
+          >
+            {" "}
+            <Link to="/"> Home </Link>{" "}
+          </div>
+
+          {/* PLACEHOLDER */}
+
+          <div
+            className="
+        px-6
+        py-2.5
+        bg-blue-900
+        text-white
+        font-medium
+        text-xs
+        leading-tight
+        uppercase
+        hover:bg-blue-700
+        focus:bg-blue-700 focus:outline-none focus:ring-0
+        active:bg-blue-800
+        transition
+        duration-150
+        ease-in-out
+      "
+          >
+            {" "}
+            <Link to="/register"> Register </Link>{" "}
+          </div>
+
+          <div
+            className="
+        rounded-r
+        px-6
+        py-2.5
+        bg-blue-900
+        text-white
+        font-medium
+        text-xs
+        leading-tight
+        uppercase
+        hover:bg-blue-700
+        focus:bg-blue-700 focus:outline-none focus:ring-0
+        active:bg-blue-800
+        transition
+        duration-150
+        ease-in-out
+      "
+          >
+            {" "}
+            <Link to="/login"> Login </Link>{" "}
+          </div>
+        </div>
+      </div>
+    </div>
            <div className="register-main"> 
+           
            <section>
-           <h3 class="font-bold text-2xl">Welcome to the NSW Driving Licence Application</h3>
-           <p class="text-gray-600 pt-2">Please register here</p>
+     
+           <p className="text-gray-600 pt-2">Please register here</p>
            </section>
          
-           <section class="mt-10">
-                <label> First Name: </label>
-                <input class="register-box" type="text" value={firstName} required="required"  onChange={(e) => setFirstName(e.target.value)} />
+           <section className="mt-10">
+                <label> First Name </label>
+                <input className="register-box" type="text" value={firstName} required="required"  onChange={(e) => setFirstName(e.target.value)} />
                 
-                <label> Last Name: </label>
-                <input class="register-box" type="text" value={lastName} required="required"  onChange={(e) => setLastName(e.target.value)} /> 
+                <label> Last Name </label>
+                <input className="register-box" type="text" value={lastName} required="required"  onChange={(e) => setLastName(e.target.value)} /> 
                 
-                <label> Email: </label>
-                <input class="register-box" type="text" value={email} required="required"  onChange={(e) => setEmail(e.target.value)} />
+                <label> Email </label>
+                <input className="register-box" type="text" value={email} required="required"  onChange={(e) => setEmail(e.target.value)} />
 
-                <label> Date of Birth: </label>
-                <input class= "register-box" type= "date" value={dateOfBirth} required="required"  onChange={(e) => setDateOfBirth(e.target.value)}/>
+                <label> Date of Birth </label>
+                <input className= "register-box" type= "date" value={dateOfBirth} required="required"  onChange={(e) => setDateOfBirth(e.target.value)}/>
             
-                <label> Mobile Number:</label>
-                <input class="register-box" type="text" value={mobile} required="required"  onChange={(e) => setMobile(e.target.value)} />
+                <label> Mobile Number</label>
+                <input className="register-box" type="text" value={mobile} required="required"  onChange={(e) => setMobile(e.target.value)} />
             
-                <label> Password: </label>
-                <input class="register-box" type="password" value={password} required="required"  onChange={(e) => setPassword(e.target.value)} />
+                <label> Password </label>
+                <input className="register-box" type="password" value={password} required="required"  onChange={(e) => setPassword(e.target.value)} />
                 </section>
                 <button className="register-button" onClick={getData}> Submit Registration </button>
             </div>
        
           
-            
+           
         </>
     )
 }

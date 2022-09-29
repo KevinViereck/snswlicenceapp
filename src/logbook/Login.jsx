@@ -31,7 +31,7 @@ export default function Login() {
 
   return (
     <>
-      <div class="content-center">
+      <div className="content-center">
       
         <section>
           <img
@@ -43,13 +43,14 @@ export default function Login() {
           />
         </section>
         <br></br>
+
+        
         <div class="flex items-center justify-center">
           <div
             class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg"
             role="group"
           >
-            <a
-              href="#"
+            <div
               aria-current="page"
               class="
         rounded-l
@@ -71,10 +72,9 @@ export default function Login() {
             >
               {" "}
               <Link to="/"> Home </Link>{" "}
-            </a>
-            <a
-              href="#"
-              class="
+            </div>
+            <div
+              className="
         px-6
         py-2.5
         bg-blue-900
@@ -93,11 +93,10 @@ export default function Login() {
             >
               {" "}
               <Link to="/register"> Register </Link>{" "}
-            </a>
+            </div>
 
-            <a
-              href="#"
-              class="
+            <div
+              className="
         rounded-r
         px-6
         py-2.5
@@ -117,31 +116,32 @@ export default function Login() {
             >
               {" "}
               <Link to="/login"> Login </Link>{" "}
-            </a>
+            </div>
           </div>
         </div>
       </div>
 <br></br>
-      <div className="App">
-        <table>      </table>
+<section className="mt-10">
         <label>Email:</label>
-        <input
-          type="text"
+        <input className="register-box" type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-      </div>
-      <div>
+ 
+      
+      
         <label>Password</label>
-        <input
+        <input className="register-box"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      </div>
-      <div>
+      
+      </section>
+      
+   
         <button onClick={getLogin}> Login </button>
-      </div>
+  
 
     </>
   );

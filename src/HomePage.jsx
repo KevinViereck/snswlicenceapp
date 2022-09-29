@@ -3,7 +3,7 @@ import nswlogo from "./img/nswlogo.png";
 
 export default function HomePage() {
   return (
-    <div class="content-center">
+    <div className="content-center">
       <section>
         <img
           className="nsw-logo"
@@ -14,15 +14,14 @@ export default function HomePage() {
         />
       </section>
       <br></br>
-      <div class="flex items-center justify-center">
+      <div className="flex items-center justify-center">
         <div
-          class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg"
+          className="inline-flex shadow-md hover:shadow-lg focus:shadow-lg"
           role="group"
         >
-          <a
-            href="#"
+          <div
             aria-current="page"
-            class="
+            className="
         rounded-l
         px-6
         py-2.5
@@ -40,14 +39,14 @@ export default function HomePage() {
         ease-in-out
       "
           >
-             
-              {" "}
-              <Link to="/"> Home </Link>{" "}
-            
-          </a>
-          <a
-            href="#"
-            class="
+            {" "}
+            <Link to="/"> Home </Link>{" "}
+          </div>
+
+          {/* PLACEHOLDER */}
+
+          <div
+            className="
         px-6
         py-2.5
         bg-blue-900
@@ -64,15 +63,12 @@ export default function HomePage() {
         ease-in-out
       "
           >
-          
-              {" "}
-              <Link to="/register"> Register </Link>{" "}
-           
-          </a>
-          
-          <a
-            href="#"
-            class="
+            {" "}
+            <Link to="/register"> Register </Link>{" "}
+          </div>
+
+          <div
+            className="
         rounded-r
         px-6
         py-2.5
@@ -90,14 +86,11 @@ export default function HomePage() {
         ease-in-out
       "
           >
-              
-              {" "}
-              <Link to="/login"> Login </Link>{" "}
-            
-          </a>
+            {" "}
+            <Link to="/login"> Login </Link>{" "}
+          </div>
         </div>
       </div>
-
     </div>
   );
 }

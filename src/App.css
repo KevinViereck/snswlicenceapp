@@ -13,6 +13,6 @@
 }
 
 .App {
-  @apply text-blue-600/100;
+  @apply text-gray-600;
 }
 
