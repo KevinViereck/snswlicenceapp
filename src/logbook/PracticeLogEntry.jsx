@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function PracticeLogEntry(){
 
@@ -6,6 +6,17 @@ export default function PracticeLogEntry(){
     const[startTime, setStartTime] = useState()
     const[endTime, setEndTime] = useState()
     const[instructorLed, setInstructorLed] = useState()
+
+useEffect(() => {
+    getLogBook();
+}, []);
+
+
+function getLogBook(){
+    fetch ('http://localhost:8080/logbook', {method: "GET"})
+    .then (res => res.json())
+    .then((result) => setPracticeLogEntries(result));
+}
 
     return(
         <>
@@ -28,9 +39,6 @@ export default function PracticeLogEntry(){
                                 <td> {le.endTime - le.startTime} </td>
                             </tr>
                         ))
-
-
-
 
                     }
                 

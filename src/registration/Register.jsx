@@ -43,22 +43,22 @@ export default function Register(){
            </section>
            <section class="mt-10">
                 <label> First Name: </label>
-                <input class="register-box" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                <input class="register-box" type="text" value={firstName} required="required"  onChange={(e) => setFirstName(e.target.value)} />
                 
                 <label> Last Name: </label>
-                <input class="register-box" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} /> 
+                <input class="register-box" type="text" value={lastName} required="required"  onChange={(e) => setLastName(e.target.value)} /> 
                 
                 <label> Email: </label>
-                <input class="register-box" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input class="register-box" type="text" value={email} required="required"  onChange={(e) => setEmail(e.target.value)} />
 
                 <label> Date of Birth: </label>
-                <input class= "register-box" type= "date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)}/>
+                <input class= "register-box" type= "date" value={dateOfBirth} required="required"  onChange={(e) => setDateOfBirth(e.target.value)}/>
             
                 <label> Mobile Number:</label>
-                <input class="register-box" type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} />
+                <input class="register-box" type="text" value={mobile} required="required"  onChange={(e) => setMobile(e.target.value)} />
             
                 <label> Password: </label>
-                <input class="register-box" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input class="register-box" type="password" value={password} required="required"  onChange={(e) => setPassword(e.target.value)} />
                 </section>
                 <button className="register-button" onClick={getData}> Submit Registration </button>
             </div>
