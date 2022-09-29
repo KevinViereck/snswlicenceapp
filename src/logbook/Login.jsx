@@ -32,7 +32,6 @@ export default function Login() {
   return (
     <>
       <div className="content-center">
-      
         <section>
           <img
             className="nsw-logo"
@@ -44,113 +43,68 @@ export default function Login() {
         </section>
         <br></br>
 
-        
         <div class="flex items-center justify-center">
           <div
             class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg"
             role="group"
           >
-            <div
-              aria-current="page"
-              class="
-        rounded-l
-        px-6
-        py-2.5
-        bg-blue-900
-        text-white
-        font-medium
-        text-xs
-        leading-tight
-        uppercase
-        hover:bg-blue-700
-        focus:bg-blue-700 focus:outline-none focus:ring-0
-        active:bg-blue-800
-        transition
-        duration-150
-        ease-in-out
-      "
-            >
+            <div className="navi">
               {" "}
               <Link to="/"> Home </Link>{" "}
             </div>
-            <div
-              className="
-        px-6
-        py-2.5
-        bg-blue-900
-        text-white
-        font-medium
-        text-xs
-        leading-tight
-        uppercase
-        hover:bg-blue-700
-        focus:bg-blue-700 focus:outline-none focus:ring-0
-        active:bg-blue-800
-        transition
-        duration-150
-        ease-in-out
-      "
-            >
+            <div className="navi">
               {" "}
               <Link to="/register"> Register </Link>{" "}
             </div>
 
-            <div
-              className="
-        rounded-r
-        px-6
-        py-2.5
-        bg-blue-900
-        text-white
-        font-medium
-        text-xs
-        leading-tight
-        uppercase
-        hover:bg-blue-700
-        focus:bg-blue-700 focus:outline-none focus:ring-0
-        active:bg-blue-800
-        transition
-        duration-150
-        ease-in-out
-      "
-            >
+            <div className="navi">
               {" "}
               <Link to="/login"> Login </Link>{" "}
             </div>
           </div>
         </div>
       </div>
-<br></br>
+      <br></br>
 
+      <div className="register-main">
+        <section>
+          <p className="text-gray-600 pt-2">Please login here</p>
+        </section>
+        <section className="mt-10">
+          <table>
+            <tr>
+              <td width="10">
+                <label>Your Email</label>
+                <input
+                  className="register-box"
+                  type="text" placeholder="email@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Password</label>
 
+                <input
+                  className="register-box"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </td>
+            </tr>
+            {/* <button onClick={getLogin}> Login </button> */}
 
-<div className="register-main"> 
-<section>
-     
-     <p className="text-gray-600 pt-2">Please login here</p>
-     </section>
-<section className="mt-10">
-        <label>Email:</label>
-        <input className="register-box" type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
- 
-      
-      
-        <label>Password</label>
-        <input className="register-box"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-         <button onClick={getLogin}> Login </button>
-      </section>
-      
-   </div>
-     
-  
+            <button type="button" className="navi">
+              Login
+            </button>
+          </table>
+        </section>
 
+        <br></br>
+      </div>
     </>
   );
 }

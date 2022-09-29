@@ -3,7 +3,7 @@ import nswlogo from "./img/nswlogo.png";
 
 export default function HomePage() {
   return (
-    <div className="content-center">
+    <div className="content-center drop-shadow-xl">
       <section>
         <img
           className="nsw-logo"
@@ -19,26 +19,7 @@ export default function HomePage() {
           className="inline-flex shadow-md hover:shadow-lg focus:shadow-lg"
           role="group"
         >
-          <div
-            aria-current="page"
-            className="
-        rounded-l
-        px-6
-        py-2.5
-        bg-blue-900
-        text-white
-        font-medium
-        text-xs
-        leading-tight
-        uppercase
-        hover:bg-blue-700
-        focus:bg-blue-700 focus:outline-none focus:ring-0
-        active:bg-blue-800
-        transition
-        duration-150
-        ease-in-out
-      "
-          >
+          <div className="navi">
             {" "}
             <Link to="/"> Home </Link>{" "}
           </div>
@@ -46,21 +27,7 @@ export default function HomePage() {
           {/* PLACEHOLDER */}
 
           <div
-            className="
-        px-6
-        py-2.5
-        bg-blue-900
-        text-white
-        font-medium
-        text-xs
-        leading-tight
-        uppercase
-        hover:bg-blue-700
-        focus:bg-blue-700 focus:outline-none focus:ring-0
-        active:bg-blue-800
-        transition
-        duration-150
-        ease-in-out
+            className="navi
       "
           >
             {" "}
@@ -68,22 +35,7 @@ export default function HomePage() {
           </div>
 
           <div
-            className="
-        rounded-r
-        px-6
-        py-2.5
-        bg-blue-900
-        text-white
-        font-medium
-        text-xs
-        leading-tight
-        uppercase
-        hover:bg-blue-700
-        focus:bg-blue-700 focus:outline-none focus:ring-0
-        active:bg-blue-800
-        transition
-        duration-150
-        ease-in-out
+            className="navi
       "
           >
             {" "}
