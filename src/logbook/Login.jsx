@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import nswlogo from "../img/nswlogo.png";
 
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,6 +31,11 @@ export default function Login() {
 
   return (
     <>
+
+
+
+    
+    <script src="../path/to/flowbite/dist/flowbite.js"></script>
       <div className="content-center">
         <section>
           <img
@@ -42,9 +48,9 @@ export default function Login() {
         </section>
         <br></br>
 
-        <div class="flex items-center justify-center">
+        <div className="flex items-center justify-center">
           <div
-            class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg"
+            className="inline-flex shadow-md hover:shadow-lg focus:shadow-lg"
             role="group"
           >
             <div className="navi">
@@ -95,13 +101,17 @@ export default function Login() {
                 />
               </td>
             </tr>
-            
-  
-               <button className="submit" onClick={getLogin}> Login </button> //CENTER LOGIN BUTTON 
-       
+            <br></br>
+            <tr>
+              <td align="center">
+                <button className="submit" onClick={getLogin}>
+                  {" "}
+                  Login{" "}
+                </button>{" "}
+              </td>
+            </tr>
           </table>
-       
-</section>
+        </section>
         <br></br>
       </div>
     </>
