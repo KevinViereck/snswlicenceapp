@@ -50,7 +50,7 @@ export default function CreateEntry(){
               </td>
               </tr>
               <tr>
-              <td width="10">
+              <td width="100">
                 <label>Instructor Led</label>
                   <select value={instructorLed} onChange={e=>setInstructorLed(e.target.value)} />
                   <option value="true">Yes</option>
