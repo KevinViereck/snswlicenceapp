@@ -95,11 +95,11 @@ export default function Login() {
                 />
               </td>
             </tr>
-            {/* <button onClick={getLogin}> Login </button> */}
+            <button onClick={getLogin}> Login </button>
 
-            <button type="button" className="navi">
+            {/* <button type="button" className="navi">
               Login
-            </button>
+            </button> */}
           </table>
         </section>
 
