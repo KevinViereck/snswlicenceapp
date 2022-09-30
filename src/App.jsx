@@ -4,6 +4,7 @@ import Register from './registration/Register'
 import HomePage from './HomePage';
 import Login from './logbook/Login';
 import LogBook from './logbook/LogBook';
+import CreateEntry from './logbook/CreateEntry';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/register" element={< Register />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/logbook" element={<LogBook />} />
+        <Route path="/create" element={<CreateEntry />} />
 
       </Routes>
       </center>
