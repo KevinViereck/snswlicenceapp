@@ -162,7 +162,7 @@ export default function Register() {
           </table>
         </section>
         <br></br>
-        <button className="navi" onClick={getData}>
+        <button className="navi" onClick={getData}> 
           {" "}
           Submit Registration{" "}
         </button>

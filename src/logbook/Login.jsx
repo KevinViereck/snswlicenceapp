@@ -95,14 +95,13 @@ export default function Login() {
                 />
               </td>
             </tr>
-            <button onClick={getLogin}> Login </button>
-
-            {/* <button type="button" className="navi">
-              Login
-            </button> */}
+            
+  
+               <button className="submit" onClick={getLogin}> Login </button> //CENTER LOGIN BUTTON 
+       
           </table>
-        </section>
-
+       
+</section>
         <br></br>
       </div>
     </>

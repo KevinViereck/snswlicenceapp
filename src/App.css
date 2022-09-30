@@ -19,6 +19,26 @@ ease-in-out
 
 }
 
+.submit{
+@apply 
+  rounded
+px-6
+py-2.5
+bg-blue-900
+text-white
+font-medium
+text-xs
+leading-tight
+uppercase
+hover:bg-blue-900
+focus:bg-blue-700 focus:outline-none focus:ring-0
+active:bg-blue-800
+transition
+duration-150
+ease-in-out
+}
+
+
 .register-main {
   @apply bg-white max-w-lg mb-5 md:p-5 my-10 rounded-lg shadow-2xl;
 }
