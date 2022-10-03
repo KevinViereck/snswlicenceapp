@@ -10,6 +10,7 @@ import DeleteEntry from './logbook/DeleteEntry';
 import UpdateEntry from './logbook/UpdateEntry';
 import NewUserRegistered from './registration/NewUserRegistered';
 import { loginStorageKey } from './web-helpers';
+import LoginAsInCustomer from './logbook/LoginAsCustomer';
 
 
 
@@ -50,6 +51,7 @@ function App() {
               <Route path="/newuserregistered" element={<NewUserRegistered/>}/>
               <Route path="/login" element={<Login/>} />
               <Route path="/logbook" element={<LogBook />} />
+              <Route path="loginAsCustomer" element={<LoginAsInCustomer />} />
               <Route path="/testing" element={<Testing />} />
               <Route path="/create" element={<CreateEntry />} />
               <Route path="update/:id" element={<UpdateEntry />} />
