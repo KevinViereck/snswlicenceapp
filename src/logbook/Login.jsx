@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import nswlogo from "../img/nswlogo.png";
+import { login } from "../web-helpers";
 
 
 export default function Login() {
@@ -9,58 +10,10 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  function getLogin() {
-    const config = {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    };
-
-    const response = fetch(`http://localhost:8080/user/login`, config)
-      .then((r) => {
-        if (r.status != 200) {
-          throw Error("Invalid Login");
-        }
-        return r.json();
-      })
-      .then((j) => {
-        localStorage.setItem("token", j);
-        return j;
-      });
+  async function submit() {
+   await login(email,password)
     navigate("/logbook");
   }
-
-  // function parseJwt (token) {
-  //   var base64Url = token.split('.')[1];
-  //   var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  //   var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-  //   return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-  //   }).join(''));
-  //   return JSON.parse(jsonPayload);
-  //   };
-
-  //   if(token){
-  //     return (
-  //     <div>
-  //     <Link to="/login"></Link>
-  //     <Link to="register"> </Link>
-  //     </div>
-  //     );
-  //     }
-  //     let payload = parseJwt(token);
-
-  //     const response = fetch(`http://localhost:8080/user/login`, config)
-  //     .then((r) => {
-  //       if (r.status != 200) {
-  //         throw Error("Invalid Login");
-  //       }
-  //       return r.json();
-  //     })
-  //     .then((j) => {
-  //       localStorage.setItem("token", j);
-  //       navigate("/logbook");
-  //     });
-  // }
 
   return (
     <>
@@ -143,7 +96,7 @@ export default function Login() {
             
             <tr>
               <td align="center">
-                <button className="submit" onClick={getLogin}>
+                <button className="submit" onClick={submit}>
                   {" "}
                   Login{" "}
                 </button>{" "}
