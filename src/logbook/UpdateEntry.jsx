@@ -9,6 +9,7 @@ const[startTime, setStartTime] = useState()
 const[endTime, setEndTime] = useState()
 const[instructorLed, setInstructorLed] = useState()
 
+
     fetch(`http://localhost:8080/logbook/${practiceLogEntries._id}`, {
         method:"PUT",
         headers:{'Content-type':'application/json'},
@@ -16,7 +17,7 @@ const[instructorLed, setInstructorLed] = useState()
     })
     .then(r=>r.json())
     .then(j=> {
-        setPracticeLogEntries(practiceLogEntries.map(p=>p._id == params.id ? j : p));
+        setPracticeLogEntries(practiceLogEntries.map(p=>p._id == practiceLogEntries.id ? j : p));
     
     })
     .catch(e => alert(e.message));

@@ -17,7 +17,7 @@ import { loginStorageKey } from './web-helpers';
 function App() {
 
   const{ roles, email} = JSON.parse(
-    localStorage.getItem(loginStorageKey) ?? {roles:[]}
+    localStorage.getItem(loginStorageKey) ?? JSON.stringify({roles:[]})
   )
 
   return (
