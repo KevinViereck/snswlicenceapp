@@ -7,6 +7,7 @@ import LogBook from './logbook/LogBook';
 import Testing from './testing';
 import CreateEntry from './logbook/CreateEntry';
 import DeleteEntry from './logbook/DeleteEntry';
+import UpdateEntry from './logbook/UpdateEntry';
 
 
 

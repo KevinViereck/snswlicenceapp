@@ -1,11 +1,14 @@
 import { useParams } from "react-router-dom"
+import { useState } from "react"
 
+
+export default function UpdateEntry(){
+    
 const[practiceLogEntries, setPracticeLogEntries] = useState([''])
 const[startTime, setStartTime] = useState()
 const[endTime, setEndTime] = useState()
 const[instructorLed, setInstructorLed] = useState()
 
-function updateEntry(){
     fetch(`http://localhost:8080/logbook/${practiceLogEntries._id}`, {
         method:"PUT",
         headers:{'Content-type':'application/json'},
@@ -27,11 +30,11 @@ return(
     </div>
      <div>
             <label>End Time</label>
-        <input value={endTime} onChange={e=> endStartTime} />
+        <input value={endTime} onChange={e=> setEndTime} />
     </div>
     <div>
             <label>Instructor Led</label>
-        <input value={endTime} onChange={e=> endStartTime} />
+        <input value={instructorLed} onChange={e=> setInstructorLed} />
     </div>
 </div>
 
