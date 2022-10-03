@@ -110,6 +110,12 @@ export default function Login() {
         </section>
         <section className="mt-10">
           <table>
+            <thead>
+              <tr>
+
+              </tr>
+            </thead>
+            <tbody> 
             <tr>
               <td width="10">
                 <label>Your Email</label>
@@ -134,7 +140,7 @@ export default function Login() {
                 />
               </td>
             </tr>
-            <br></br>
+            
             <tr>
               <td align="center">
                 <button className="submit" onClick={getLogin}>
@@ -143,6 +149,7 @@ export default function Login() {
                 </button>{" "}
               </td>
             </tr>
+            </tbody>
           </table>
         </section>
         <br></br>
