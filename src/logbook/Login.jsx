@@ -17,10 +17,6 @@ export default function Login() {
 
   return (
     <>
-
-
-
-    
     <script src="../path/to/flowbite/dist/flowbite.js"></script>
       <div className="content-center">
         <section>
