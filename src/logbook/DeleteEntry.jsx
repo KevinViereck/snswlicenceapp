@@ -7,7 +7,9 @@ export default function DeleteEntry(){
 
 function deleteProduct(){
        fetch(`http://localhost:8080/logbook/${id}`, {method: "DELETE"});
+       navigate
     }
+
 
     return(
         <>

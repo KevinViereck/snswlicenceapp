@@ -6,12 +6,9 @@ import Login from './logbook/Login';
 import LogBook from './logbook/LogBook';
 import Testing from './testing';
 import CreateEntry from './logbook/CreateEntry';
-<<<<<<< HEAD
 import DeleteEntry from './logbook/DeleteEntry';
 import UpdateEntry from './logbook/UpdateEntry';
-=======
 import NewUserRegistered from './registration/NewUserRegistered';
->>>>>>> fe00d4e7aea70ea8c77ccf3b086ba144e6e52239
 
 
 
