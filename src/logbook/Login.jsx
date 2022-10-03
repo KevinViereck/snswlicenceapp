@@ -25,9 +25,42 @@ export default function Login() {
       })
       .then((j) => {
         localStorage.setItem("token", j);
-        navigate("/logbook");
+        return j;
       });
+    navigate("/logbook");
   }
+
+  // function parseJwt (token) {
+  //   var base64Url = token.split('.')[1];
+  //   var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  //   var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+  //   return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  //   }).join(''));
+  //   return JSON.parse(jsonPayload);
+  //   };
+
+  //   if(token){
+  //     return (
+  //     <div>
+  //     <Link to="/login"></Link>
+  //     <Link to="register"> </Link>
+  //     </div>
+  //     );
+  //     }
+  //     let payload = parseJwt(token);
+
+  //     const response = fetch(`http://localhost:8080/user/login`, config)
+  //     .then((r) => {
+  //       if (r.status != 200) {
+  //         throw Error("Invalid Login");
+  //       }
+  //       return r.json();
+  //     })
+  //     .then((j) => {
+  //       localStorage.setItem("token", j);
+  //       navigate("/logbook");
+  //     });
+  // }
 
   return (
     <>
@@ -77,6 +110,12 @@ export default function Login() {
         </section>
         <section className="mt-10">
           <table>
+            <thead>
+              <tr>
+
+              </tr>
+            </thead>
+            <tbody> 
             <tr>
               <td width="10">
                 <label>Your Email</label>
@@ -101,7 +140,7 @@ export default function Login() {
                 />
               </td>
             </tr>
-            <br></br>
+            
             <tr>
               <td align="center">
                 <button className="submit" onClick={getLogin}>
@@ -110,6 +149,7 @@ export default function Login() {
                 </button>{" "}
               </td>
             </tr>
+            </tbody>
           </table>
         </section>
         <br></br>
