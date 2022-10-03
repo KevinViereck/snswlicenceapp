@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import nswlogo from "../img/nswlogo.png";
 import { Link } from "react-router-dom";
 export default function Register() {
-  const [firstName, setFirstName] = useState("Tom");
-  const [lastName, setLastName] = useState("Smith");
-  const [email, setEmail] = useState("t@e.com");
-  const [dateOfBirth, setDateOfBirth] = useState("2001-05-14");
-  const [mobile, setMobile] = useState("0123456");
-  const [password, setPassword] = useState("password");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   // useEffect(() => {
   //     getData()
