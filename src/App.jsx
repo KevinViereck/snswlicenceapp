@@ -6,6 +6,7 @@ import Login from './logbook/Login';
 import LogBook from './logbook/LogBook';
 import Testing from './testing';
 import CreateEntry from './logbook/CreateEntry';
+import DeleteEntry from './logbook/DeleteEntry';
 
 
 
@@ -26,6 +27,8 @@ function App() {
         <Route path="/logbook" element={<LogBook />} />
         <Route path="/testing" element={<Testing />} />
         <Route path="/create" element={<CreateEntry />} />
+        <Route path="update/:id" element={<UpdateEntry />} />
+        <Route path="delete/:id" element={<DeleteEntry />} />
 
       </Routes>
       </center>
