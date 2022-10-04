@@ -11,6 +11,7 @@ import UpdateEntry from './logbook/UpdateEntry';
 import NewUserRegistered from './registration/NewUserRegistered';
 import { loginStorageKey } from './web-helpers';
 import LoginAsInCustomer from './logbook/LoginAsCustomer';
+import nswlogo from "./img/nswlogo.png";
 
 
 
@@ -24,6 +25,7 @@ function App() {
   return (
     
     <div className="main-app">
+      
       <br></br>
         <center>
           <div>

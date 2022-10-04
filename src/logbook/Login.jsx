@@ -4,20 +4,18 @@ import { Link } from "react-router-dom";
 import nswlogo from "../img/nswlogo.png";
 import { login } from "../web-helpers";
 
-
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   async function submit() {
-   await login(email,password)
+    await login(email, password);
     navigate("/logbook");
   }
 
   return (
     <>
-    <script src="../path/to/flowbite/dist/flowbite.js"></script>
       <div className="content-center">
         <section>
           <img
@@ -50,58 +48,30 @@ export default function Login() {
             </div>
           </div>
         </div>
-      </div>
-      <br></br>
 
-      <div className="register-main">
-        <section>
+        <div className="register-main">
           <p className="text-gray-600 pt-2">Please login here</p>
-        </section>
-        <section className="mt-10">
-          <table>
-            <thead>
-              <tr>
+          <div className="">
+            <label> Email: </label>
+            <input
+              className="register-box"
+              type="text"
+              placeholder="email@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
 
-              </tr>
-            </thead>
-            <tbody> 
-            <tr>
-              <td width="10">
-                <label>Your Email</label>
-                <input
-                  className="register-box"
-                  type="text"
-                  placeholder="email@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <label>Password</label>
-
-                <input
-                  className="register-box"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </td>
-            </tr>
-            
-            <tr>
-              <td align="center">
-                <button className="submit" onClick={submit}>
-                  {" "}
-                  Login{" "}
-                </button>{" "}
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </section>
-        <br></br>
+          <div className="">
+            <label> Password: </label>
+            <input
+              className="register-box"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+        </div>
       </div>
     </>
   );
