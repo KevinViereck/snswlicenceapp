@@ -75,65 +75,149 @@ export default function Register() {
       <br></br>
 
       {/* Start coding register box here */}
-
-      
-      <h3 className="font-bold text-2xl">
-            Welcome to the NSW Driving Licence Application
-          </h3>
       <div className="register-main">
-    
-        
-          <p className="text-gray-600 pt-2">Please register here</p>
+          <p className="text-gray-600 pt-2">Please login here</p>
+   <br></br>
+          <div className="w-56 relative group">
+          
+            <input
+              className="register-box"
+              type="text"
+              id="firstname" 
+              required class="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+              flex items-stretch
+             focus:outline-none border-b-4 border-gray-300
+               focus:border-blue-900 transition duration-500 px-3 pb-3"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />   
+            
+            <label for="firstname" class="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+            peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
+            group-focus-within:-translate-y-full peer-valid:-translate-y-full 
+            group-focus-within:pl-0 peer-valid:pl-0">Please enter First Name</label>
+          </div>
           <br></br>
-          <div class="flex-inline space-x-1 space-y-3">
-	<div className=""><label> First Name: </label>
+          <div className="w-56 relative group">
+          
           <input
             className="register-box"
             type="text"
-            value={firstName}
-            required="required"
-            onChange={(e) => setFirstName(e.target.value)}
-          /></div>
-	<div className=""><label> Last Name: </label>
-          <input
-            className="register-box"
-            type="text"
+            id="lastname" 
+            required class="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            flex items-stretch
+           focus:outline-none border-b-4 border-gray-300
+             focus:border-blue-900 transition duration-500 px-3 pb-3"
             value={lastName}
-            required="required"
             onChange={(e) => setLastName(e.target.value)}
-          /></div>
-	<div className=""><label> Email: </label>
+          />   
+        
+          <label for="lastname" class="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+          peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
+          group-focus-within:-translate-y-full peer-valid:-translate-y-full 
+          group-focus-within:pl-0 peer-valid:pl-0">Please enter Last Name</label>
+        </div>
+<br></br>
+        <div className="w-56 relative group">
+          
           <input
             className="register-box"
             type="text"
+            id="email" 
+            required class="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            flex items-stretch
+           focus:outline-none border-b-4 border-gray-300
+             focus:border-blue-900 transition duration-500 px-3 pb-3"
             value={email}
-            required="required"
             onChange={(e) => setEmail(e.target.value)}
-          /></div>
-	<div className=""><label> Date of Birth: </label>
+          />   
+        
+          <label for="lastname" class="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+          peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
+          group-focus-within:-translate-y-full peer-valid:-translate-y-full 
+          group-focus-within:pl-0 peer-valid:pl-0">Please enter Email</label>
+        </div>
+
+<br></br>   
+
+<div className="w-56 relative group">
+          
           <input
             className="register-box"
             type="text"
-            value={dateOfBirth}
-            required="required"
-            onChange={(e) => setDateOfBirth(e.target.value)}
-          /></div>
-	<div className=""><label> Password: </label>
+            id="mobile" 
+            required class="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            flex items-stretch
+           focus:outline-none border-b-4 border-gray-300
+             focus:border-blue-900 transition duration-500 px-3 pb-3"
+            value={mobile}
+            onChange={(e) => setMobile(e.target.value)}
+          />   
+        
+          <label for="mobile" class="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+          peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
+          group-focus-within:-translate-y-full peer-valid:-translate-y-full 
+          group-focus-within:pl-0 peer-valid:pl-0">Please enter Mobile Number</label>
+        </div>
+
+<br></br>   
+
+<div className="w-56 relative group">
+          
           <input
+            className="register-box"
+            type="date"
+            id="dateofbirth" 
+            required class="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            flex items-stretch
+           focus:outline-none border-b-4 border-gray-300
+             focus:border-blue-900 transition duration-500 px-3 pb-3"
+            value={dateOfBirth}
+            onChange={(e) => setDateOfBirth(e.target.value)}
+          />   
+        
+          <label for="dateofbirth" class="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+          peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
+          group-focus-within:-translate-y-full peer-valid:-translate-y-full 
+          group-focus-within:pl-0 peer-valid:pl-0"></label>
+        </div>
+        
+          <div className="w-56 relative group">
+            <label> Password: </label>
+            <input
             className="register-box"
             type="password"
-            value={password}
-            required="required"
-            onChange={(e) => setPassword(e.target.value)}
-          /></div>
-                <button className="navi" onClick={getData}>
-          {" "}
-          Submit Registration{" "}
-        </button>
+            id="password" 
+            required class="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            flex items-stretch
+           focus:outline-none border-b-4 border-gray-300
+             focus:border-blue-900 transition duration-500 px-3 pb-3"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
 
-</div>
+          <br></br>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+
+      
+      
+     
        
-      </div>
+    
     </>
   );
 }

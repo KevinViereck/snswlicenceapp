@@ -9,6 +9,8 @@ export default function CreateEntry(){
     const[day, setDay] = useState('')
     const[night, setNight] = useState('')
     const[instructorLed, setInstructorLed] =useState('')
+    const [id] = useState('')
+    
 
 
 
@@ -27,9 +29,7 @@ export default function CreateEntry(){
 
     return(
     <>
-     <table>
-            <tr>
-              <td width="10">
+  
                 <label>Start Time</label>
                 <input
                   className="create-entry"
@@ -38,10 +38,7 @@ export default function CreateEntry(){
                   value={startTime}
                   onChange={(e) => setStartTime(e.target.value)}
                 />
-              </td>
-            </tr>
-            <tr>
-              <td>
+         
                 <label>End Time</label>
                 <input
                   className="create-entry"
@@ -50,20 +47,16 @@ export default function CreateEntry(){
                   value={endTime}
                   onChange={(e) => setEndTime(e.target.value)}
                 />
-              </td>
-              </tr>
-              <tr>
-              <td width="100">
+            
                 <label>Instructor Led</label>
                   <select value={instructorLed} onChange={e=>setInstructorLed(e.target.value)}>
                   <option value="">-- Please Select Category</option>
                   <option value="true">Yes</option>
                   <option value="false">No</option>
                 </select>
-              </td>
-            </tr>
+        
                <button className="submit" onClick={PostEntry}> Log Hours</button> 
-          </table>
+       
     </>
     );
 }
