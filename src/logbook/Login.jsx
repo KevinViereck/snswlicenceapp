@@ -86,6 +86,8 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          <br></br>
+          <button className="navi" onClick={login}> Please Login </button>
 
         </div>
       </div>
