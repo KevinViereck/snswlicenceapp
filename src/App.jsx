@@ -27,6 +27,7 @@ function App() {
     <div className="main-app">
       
       <br></br>
+      
         <center>
           <div>
             <ul>
@@ -60,8 +61,11 @@ function App() {
               <Route path="delete/:id" element={<DeleteEntry />} />
 
             </Routes>
+
           </div>
         </center>
+
+      
     </div>
   );
 }

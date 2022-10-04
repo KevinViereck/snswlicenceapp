@@ -76,7 +76,7 @@ export default function Register() {
 
       {/* Start coding register box here */}
       <div className="register-main">
-          <p className="text-gray-600 pt-2">Please login here</p>
+          <p className="text-gray-600 pt-2">Please Register here</p>
    <br></br>
           <div className="w-56 relative group">
           
@@ -84,7 +84,7 @@ export default function Register() {
               className="register-box"
               type="text"
               id="firstname" 
-              required class="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+              required className="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
               flex items-stretch
              focus:outline-none border-b-4 border-gray-300
                focus:border-blue-900 transition duration-500 px-3 pb-3"
@@ -92,7 +92,7 @@ export default function Register() {
               onChange={(e) => setFirstName(e.target.value)}
             />   
             
-            <label for="firstname" class="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+            <label for="firstname" className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
             peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
             group-focus-within:-translate-y-full peer-valid:-translate-y-full 
             group-focus-within:pl-0 peer-valid:pl-0">Please enter First Name</label>
@@ -104,7 +104,7 @@ export default function Register() {
             className="register-box"
             type="text"
             id="lastname" 
-            required class="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            required className="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
@@ -112,7 +112,7 @@ export default function Register() {
             onChange={(e) => setLastName(e.target.value)}
           />   
         
-          <label for="lastname" class="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+          <label for="lastname" className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
           peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
           group-focus-within:-translate-y-full peer-valid:-translate-y-full 
           group-focus-within:pl-0 peer-valid:pl-0">Please enter Last Name</label>
@@ -124,7 +124,7 @@ export default function Register() {
             className="register-box"
             type="text"
             id="email" 
-            required class="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            required className="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
@@ -132,7 +132,7 @@ export default function Register() {
             onChange={(e) => setEmail(e.target.value)}
           />   
         
-          <label for="lastname" class="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+          <label for="lastname" className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
           peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
           group-focus-within:-translate-y-full peer-valid:-translate-y-full 
           group-focus-within:pl-0 peer-valid:pl-0">Please enter Email</label>
@@ -146,7 +146,7 @@ export default function Register() {
             className="register-box"
             type="text"
             id="mobile" 
-            required class="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            required className="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
@@ -154,7 +154,7 @@ export default function Register() {
             onChange={(e) => setMobile(e.target.value)}
           />   
         
-          <label for="mobile" class="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+          <label for="mobile" className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
           peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
           group-focus-within:-translate-y-full peer-valid:-translate-y-full 
           group-focus-within:pl-0 peer-valid:pl-0">Please enter Mobile Number</label>
@@ -168,7 +168,7 @@ export default function Register() {
             className="register-box"
             type="date"
             id="dateofbirth" 
-            required class="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            required className="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
@@ -176,7 +176,7 @@ export default function Register() {
             onChange={(e) => setDateOfBirth(e.target.value)}
           />   
         
-          <label for="dateofbirth" class="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+          <label for="dateofbirth" className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
           peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
           group-focus-within:-translate-y-full peer-valid:-translate-y-full 
           group-focus-within:pl-0 peer-valid:pl-0"></label>
@@ -185,10 +185,9 @@ export default function Register() {
           <div className="w-56 relative group">
             <label> Password: </label>
             <input
-            className="register-box"
             type="password"
             id="password" 
-            required class="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            required className="register-box w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
@@ -202,7 +201,7 @@ export default function Register() {
 
         
         
-        
+          <button className="navi" onClick={getData}> Submit Registration </button>
         
         
         
