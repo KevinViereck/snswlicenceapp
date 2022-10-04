@@ -6,7 +6,10 @@ export default function CreateEntry(){
    
     const[startTime, setStartTime] = useState('')
     const[endTime, setEndTime] = useState('')
+    const[day, setDay] = useState('')
+    const[night, setNight] = useState('')
     const[instructorLed, setInstructorLed] =useState('')
+
 
 
     async function PostEntry(){
@@ -17,7 +20,7 @@ export default function CreateEntry(){
             body: JSON.stringify({ startTime, endTime, instructorLed }),
         }
 
-        let response = await fetch(`http://localhost:8080/logbook`, config);
+        let response = await fetch(`http://localhost:8080/loghours/${id}`, config);
         let json = await response.json();
         alert("Logbook entry created");
     }
@@ -52,9 +55,11 @@ export default function CreateEntry(){
               <tr>
               <td width="100">
                 <label>Instructor Led</label>
-                  <select value={instructorLed} onChange={e=>setInstructorLed(e.target.value)} />
+                  <select value={instructorLed} onChange={e=>setInstructorLed(e.target.value)}>
+                  <option value="">-- Please Select Category</option>
                   <option value="true">Yes</option>
                   <option value="false">No</option>
+                </select>
               </td>
             </tr>
                <button className="submit" onClick={PostEntry}> Log Hours</button> 
