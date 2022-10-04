@@ -87,7 +87,7 @@ export default function Login() {
             />
           </div>
           <br></br>
-          <button className="navi" onClick={login}> Please Login </button>
+          <button className="navi" onClick={submit}> Please Login </button>
 
         </div>
       </div>
