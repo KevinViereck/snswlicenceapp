@@ -10,8 +10,8 @@ export default function Login() {
   const navigate = useNavigate();
 
   async function submit() {
-    await login(email, password);
-    navigate("/logbook");
+   await login(email,password)
+    navigate("/loginAsCustomer");
   }
 
   return (
