@@ -51,12 +51,30 @@ export default function LoginAsInCustomer() {
 
       <p> Log Book Details for USER </p>
 
-      <div className="logbook-box grid overflow-hidden grid-cols-5 grid-rows-6 gap-2">
-        <div className="box">Start time</div>
-        <div className="box">End Time</div>
-        <div className="box">Remaining required hours</div>
-        <div className="box">Add Hours</div>
-        <div className="box">Delete Hours</div>
+      <div className="logbook-box-user">
+
+      <div class="flex items-end space-x-36">
+      <div class="item w-46 h-10">
+        <label for="starttime">Start Time</label>
+          <input type="datetime-local" id="starttime" /></div>
+          
+          <div class="item w-46 h-10">
+        <label for="endtime">End Time</label>
+          <input type="datetime-local" id="endtime" /></div>
+          
+         
+          <div class="item w-46 h-10">Add Hours</div>
+          <div class="item w-46 h-10">Delete Hours</div>
+
+          <div class="item w-46 h-10">
+          <label for="remaining">Remaining Hours</label>
+          <input type="text" id="remaining" /></div>
+        
+
+        <div class="item w-46 h-10">
+          <label for="remaining">Certified Instructor </label>
+          <input type="checkbox" id="remaining" /></div>
+      </div>
       </div>
     </>
   );

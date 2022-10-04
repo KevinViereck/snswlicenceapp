@@ -76,7 +76,6 @@ export default function Login() {
           <div className="w-56 relative group">
             <label> Password: </label>
             <input
-            className="register-box"
             type="password"
             id="password" 
             required className="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
