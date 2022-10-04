@@ -10,7 +10,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   async function submit() {
-   await login(email,password)
+    await login(email, password);
     navigate("/loginAsCustomer");
   }
 
@@ -51,34 +51,38 @@ export default function Login() {
 
         <div className="register-main">
           <p className="text-gray-600 pt-2">Please login here</p>
-   <br></br>
+          <br></br>
           <div className="w-56 relative group">
-          
             <input
-              
               type="text"
-              id="username" 
-              required className="register-box w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+              id="username"
+              required
+              className="register-box w-full h-10 text-sm peer bg-gray-200 rounded 
               flex items-stretch
              focus:outline-none border-b-4 border-gray-300
                focus:border-blue-900 transition duration-500 px-3 pb-3"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-            />   
-            
-            <label for="username" className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+            />
+
+            <label
+              for="username"
+              className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
             peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
             group-focus-within:-translate-y-full peer-valid:-translate-y-full 
-            group-focus-within:pl-0 peer-valid:pl-0">Please enter Email</label>
+            group-focus-within:pl-0 peer-valid:pl-0"
+            >
+              Please enter Email
+            </label>
           </div>
 
-        
           <div className="w-56 relative group">
             <label> Password: </label>
             <input
-            type="password"
-            id="password" 
-            required className="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+              type="password"
+              id="password"
+              required
+              className="w-full h-10 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
@@ -87,8 +91,10 @@ export default function Login() {
             />
           </div>
           <br></br>
-          <button className="navi" onClick={submit}> Please Login </button>
-
+          <button className="navi" onClick={submit}>
+            {" "}
+            Please Login{" "}
+          </button>
         </div>
       </div>
     </>

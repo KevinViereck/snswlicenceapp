@@ -84,7 +84,7 @@ export default function Register() {
             
               type="text"
               id="firstname" 
-              required className="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+              required className="w-full h-10 text-sm peer bg-gray-200 rounded 
               flex items-stretch
              focus:outline-none border-b-4 border-gray-300
                focus:border-blue-900 transition duration-500 px-3 pb-3"
@@ -104,7 +104,7 @@ export default function Register() {
            
             type="text"
             id="lastname" 
-            required className="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            required className="w-full h-10 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
@@ -124,7 +124,7 @@ export default function Register() {
           
             type="text"
             id="email" 
-            required className="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            required className="w-full h-10 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
@@ -146,7 +146,7 @@ export default function Register() {
           
             type="text"
             id="mobile" 
-            required className="w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            required className="w-full h-10 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
@@ -168,7 +168,7 @@ export default function Register() {
           
             type="date"
             id="dateofbirth" 
-            required className="register-box w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            required className="register-box w-full h-10 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
@@ -187,7 +187,7 @@ export default function Register() {
             <input
             type="password"
             id="password" 
-            required className="register-box w-full h-10 px-4 text-sm peer bg-gray-200 rounded 
+            required className="register-box w-full h-10 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
