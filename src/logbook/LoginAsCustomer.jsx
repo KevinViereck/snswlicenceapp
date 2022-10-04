@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import nswlogo from "../img/nswlogo.png";
 import { login } from "../web-helpers";
+import CreateEntry  from "./CreateEntry";
+import DeleteEntry  from "./DeleteEntry";
+
 
 export default function LoginAsInCustomer() {
   const [logentries, setLogentries] = useState("");
@@ -49,30 +52,30 @@ export default function LoginAsInCustomer() {
       </div>
       <br></br>
 
-      <p> Log Book Details for USER </p>
+      <p> Log Book Details htmlFor USER </p>
 
       <div className="logbook-box-user">
 
-      <div class="flex items-end space-x-36">
-      <div class="item w-46 h-10">
-        <label for="starttime">Start Time</label>
+      <div className="flex items-end space-x-36">
+      <div className="item w-46 h-10">
+        <label htmlFor="starttime">Start Time</label>
           <input type="datetime-local" id="starttime" /></div>
           
-          <div class="item w-46 h-10">
-        <label for="endtime">End Time</label>
+          <div className="item w-46 h-10">
+        <label htmlFor="endtime">End Time</label>
           <input type="datetime-local" id="endtime" /></div>
           
          
-          <div class="item w-46 h-10">Add Hours</div>
-          <div class="item w-46 h-10">Delete Hours</div>
+          <button className="navi" onClick={CreateEntry}>Add Hours</button>
+          <button className="navi" onClick={DeleteEntry}>Delete Hours</button>
 
-          <div class="item w-46 h-10">
-          <label for="remaining">Remaining Hours</label>
+          <div className="item w-46 h-10">
+          <label htmlFor="remaining">Remaining Hours</label>
           <input type="text" id="remaining" /></div>
         
 
-        <div class="item w-46 h-10">
-          <label for="remaining">Certified Instructor </label>
+        <div className="item w-46 h-10">
+          <label htmlFor="remaining">Certified Instructor </label>
           <input type="checkbox" id="remaining" /></div>
       </div>
       </div>

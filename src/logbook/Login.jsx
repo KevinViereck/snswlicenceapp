@@ -66,7 +66,7 @@ export default function Login() {
             />
 
             <label
-              for="username"
+              htmlFor="username"
               className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
             peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
             group-focus-within:-translate-y-full peer-valid:-translate-y-full 
