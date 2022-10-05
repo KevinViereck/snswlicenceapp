@@ -24,7 +24,22 @@ export default function LogBook(){
       getLogBook();
     }, []);
 
-    
+// //     function calculateDayHours(){
+
+// // enter logic, if day hours add to total, but if day and assisted 
+// by Instructor add and multiply by 3
+
+// //     }
+
+// //     function calculateNightHours(){
+
+// // enter logic, if day hours add to total, but if day and assisted 
+// by Instructor add and multiply by 3
+
+// //     }
+
+
+
     return(
         <>
            {
