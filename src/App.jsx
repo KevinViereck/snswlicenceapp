@@ -11,6 +11,7 @@ import NewUserRegistered from './registration/NewUserRegistered';
 import { loginStorageKey } from './web-helpers';
 import LoginAsInCustomer from './logbook/LoginAsCustomer';
 import nswlogo from "./img/nswlogo.png";
+import PracticeLogEntry from './logbook/PracticeLogEntry';
 
 
 
@@ -57,7 +58,7 @@ function App() {
               <Route path="/testing" element={<Testing />} />
               <Route path="/create" element={<CreateEntry />} />
               <Route path="delete/:id" element={<DeleteEntry />} />
-
+          
             </Routes>
 
           </div>

@@ -10,7 +10,7 @@ import DeleteEntry  from "./DeleteEntry";
 export default function LoginAsInCustomer() {
   const [logentries, setLogentries] = useState("");
   const [startTime, setStartTime] = useState("");
-  const [finish, setFinish] = useState("");
+  const [endTime, setEndTime] = useState("");
   const [day, setDay] = useState("");
   const [night, setNight] = useState("");
   const [instructorLed, setInstructorLed] = useState("");
@@ -59,11 +59,18 @@ export default function LoginAsInCustomer() {
       <div className="flex items-end space-x-36">
       <div className="item w-46 h-10">
         <label htmlFor="starttime">Start Time</label>
-          <input type="datetime-local" id="starttime" /></div>
+          <input type="datetime-local" id="starttime" 
+          value={startTime}
+          onChange={(e) => setStartTime(e.target.value)}
+          />
+          </div>
           
           <div className="item w-46 h-10">
         <label htmlFor="endtime">End Time</label>
-          <input type="datetime-local" id="endtime" /></div>
+          <input type="datetime-local" id="endtime" 
+          value={endTime}
+          onChange={(e) => setEndTime(e.target.value)}
+          /></div>
           
          
           <button className="navi" onClick={CreateEntry}>Add Hours</button>

@@ -7,8 +7,10 @@ export default function LogBook(){
    const[logbook, setLogBook] = useState()
    
     async function getLogBook(){
+        var login = localStorage.getItem("login")
+        var loginObject = JSON.parse(login)
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer "+localStorage.getItem("token"));
+        myHeaders.append("Authorization", "Bearer "+ loginObject.token)
 
         const config = {
             method: 'GET',
