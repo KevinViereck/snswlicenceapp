@@ -168,7 +168,7 @@ export default function Register() {
           
             type="date"
             id="dateofbirth" 
-            required className="register-box w-full h-10 text-sm peer bg-gray-200 rounded 
+            required className="placeholder w-full h-10 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
@@ -176,7 +176,7 @@ export default function Register() {
             onChange={(e) => setDateOfBirth(e.target.value)}
           />   
         
-          <label htmlFor="dateofbirth" className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+          <label htmlFor="dateofbirth" className="placeholder transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
           peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
           group-focus-within:-translate-y-full peer-valid:-translate-y-full 
           group-focus-within:pl-0 peer-valid:pl-0"></label>

@@ -75,3 +75,10 @@ ease-in-out;
 	@apply bg-blue-50 rounded flex items-stretch
   text-black text-sm focus:outline-none border-b-0 border-gray-300
 }
+
+
+  .placeholder-style::placeholder {
+     padding: 5px 12px;
+     margin: 5px;
+  }
+

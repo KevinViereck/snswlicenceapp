@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export default function PracticeLogEntry(props){
+export default function PracticeLogEntry({logbook}){
 
     const[practiceLogEntries, setPracticeLogEntries] = useState([''])
     const[startTime, setStartTime] = useState()
@@ -25,7 +25,7 @@ export default function PracticeLogEntry(props){
                 <tbody>
 
                     {
-                        props.logbook.practiceLogEntries.map((le) => (
+                        logbook.map((le) => (
                             <tr> 
                                 <td> {new Date(le.startTime).toLocaleString()} </td>
                                 <td> {new Date(le.endTime).toLocaleString()} </td>

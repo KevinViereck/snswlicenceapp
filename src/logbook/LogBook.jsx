@@ -5,8 +5,9 @@ import PracticeLogEntry from "./PracticeLogEntry";
 export default function LogBook(){
 
    const[logbook, setLogBook] = useState()
+   const[isLoading, setIsLoading] = useState(true)
    
-    async function getLogBook(){
+    function getLogBook(){
         var login = localStorage.getItem("login")
         var loginObject = JSON.parse(login)
         var myHeaders = new Headers();
@@ -17,9 +18,13 @@ export default function LogBook(){
             headers: myHeaders,
             redirect: 'follow'
         };       
-        const response = await fetch(`http://localhost:8080/logbook/id`,config)
-        const result =  await response.json()
-        setLogBook(result)
+        fetch(`http://localhost:8080/loghours`,config)
+        .then(response => response.json())
+        .then(json => {
+          console.log(json)
+          setLogBook(json)
+          setIsLoading(false)
+        })
     }
 
     useEffect(() => { 
@@ -40,7 +45,9 @@ export default function LogBook(){
 
 // //     }
 
-
+if(isLoading) {
+  return <div>Is Loading...</div>
+}
 
     return(
         <>

@@ -16,7 +16,10 @@ import PracticeLogEntry from './logbook/PracticeLogEntry';
 
 
 
+
 function App() {
+
+  
 
   const{ roles, email} = JSON.parse(
     localStorage.getItem(loginStorageKey) ?? JSON.stringify({roles:[]})
@@ -24,8 +27,10 @@ function App() {
 
   return (
     
+
+    
     <div className="main-app">
-      
+ 
       <br></br>
       
         <center>
@@ -58,9 +63,11 @@ function App() {
               <Route path="/testing" element={<Testing />} />
               <Route path="/create" element={<CreateEntry />} />
               <Route path="delete/:id" element={<DeleteEntry />} />
+             
           
             </Routes>
 
+ 
           </div>
         </center>
 
