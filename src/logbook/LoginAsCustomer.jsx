@@ -84,7 +84,13 @@ export default function LoginAsInCustomer() {
         <div className="item w-46 h-10">
           <label htmlFor="remaining">Certified Instructor </label>
           <input type="checkbox" id="remaining" /></div>
-      </div>
+        </div>
+      
+        <div className="item w-46 h-10">
+          <label htmlFor="remaining">Night Time Hours</label>
+          <input type="checkbox" id="remaining" /></div>
+         
+      
       </div>
     </>
   );
