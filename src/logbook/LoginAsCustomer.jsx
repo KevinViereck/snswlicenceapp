@@ -11,9 +11,28 @@ export default function LoginAsInCustomer() {
   const [logentries, setLogentries] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
- 
-  const [night, setNight] = useState("");
+  const [isNight, setIsNight] = useState("");
   const [instructorLed, setInstructorLed] = useState("");
+
+  function getLogHours(){
+    var login = localStorage.getItem("login")
+    var loginObject = JSON.parse(login)
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer "+ loginObject.token)
+
+    const config = {
+      method: 'GET',
+      headers: myHeaders,
+      redirect: 'follow'
+    };       
+      fetch(`http://localhost:8080/loghours`,config)
+  .then(response => response.json())
+  .then(json => {
+    console.log(json)
+    setLogentries(json)
+  
+  })
+}
 
   return (
     <>

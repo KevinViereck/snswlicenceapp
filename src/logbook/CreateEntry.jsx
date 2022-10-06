@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 
 export default function CreateEntry(){
@@ -6,10 +7,10 @@ export default function CreateEntry(){
    
     const[startTime, setStartTime] = useState('')
     const[endTime, setEndTime] = useState('')
-    const[day, setDay] = useState('')
+    
     const[isNight, setIsNight] = useState('')
     const[instructorLed, setInstructorLed] =useState('')
-    const [id] = useState('')
+    const {id} = useParams('')
     
 
 
@@ -19,7 +20,7 @@ export default function CreateEntry(){
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',},
-            body: JSON.stringify({ startTime, endTime, instructorLed }),
+            body: JSON.stringify({ startTime, endTime, isNight, instructorLed }),
         }
 
         let response = await fetch(`http://localhost:8080/loghours/${id}`, config);
