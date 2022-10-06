@@ -11,7 +11,7 @@ export default function LoginAsInCustomer() {
   const [logentries, setLogentries] = useState("");
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
-  const [day, setDay] = useState("");
+ 
   const [night, setNight] = useState("");
   const [instructorLed, setInstructorLed] = useState("");
 

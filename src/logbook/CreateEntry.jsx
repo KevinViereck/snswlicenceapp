@@ -7,7 +7,7 @@ export default function CreateEntry(){
     const[startTime, setStartTime] = useState('')
     const[endTime, setEndTime] = useState('')
     const[day, setDay] = useState('')
-    const[night, setNight] = useState('')
+    const[isNight, setIsNight] = useState('')
     const[instructorLed, setInstructorLed] =useState('')
     const [id] = useState('')
     
