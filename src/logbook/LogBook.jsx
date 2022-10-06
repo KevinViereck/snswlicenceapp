@@ -17,7 +17,7 @@ export default function LogBook(){
             headers: myHeaders,
             redirect: 'follow'
         };       
-        const response = await fetch(`http://localhost:8080/logbook/email`,config)
+        const response = await fetch(`http://localhost:8080/logbook/id`,config)
         const result =  await response.json()
         setLogBook(result)
     }
