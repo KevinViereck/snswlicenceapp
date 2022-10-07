@@ -26,10 +26,10 @@ export default function LoginAsInCustomer() {
       redirect: 'follow'
     };       
       fetch(`http://localhost:8080/loghours`,config)
-  .then(response => response.json())
-  .then(json => {
-    console.log(json)
-    setLogentries(json)
+        .then(response => response.json())
+        .then(json => {
+      console.log(json)
+      setLogentries(json)
   
   })
 }
@@ -72,45 +72,35 @@ export default function LoginAsInCustomer() {
       <br></br>
 
       <p> Log Book Details htmlFor USER </p>
-
-      <div className="logbook-box-user">
-
-      <div className="flex items-end space-x-36">
-      <div className="item w-46 h-10">
-        <label htmlFor="starttime">Start Time</label>
-          <input type="datetime-local" id="starttime" 
-          value={startTime}
-          onChange={(e) => setStartTime(e.target.value)}
-          />
-          </div>
-          
-          <div className="item w-46 h-10">
-        <label htmlFor="endtime">End Time</label>
-          <input type="datetime-local" id="endtime" 
-          value={endTime}
-          onChange={(e) => setEndTime(e.target.value)}
-          /></div>
-          
-         
+                    <div>
+                        <label> Start: </label>
+                        <input type="datetime-local" value={startTime} onChange={e=>setStartTime(e.target.value)}/>
+                    </div>
+                    <div>
+                        <label> End: </label>
+                        <input type="datetime-local" value={endTime} onChange={e=>setEndTime(e.target.value)}/>
+                    </div>
+                    <div>
+                        <label style={{marginLeft:25}}>
+                        <input type="checkbox" checked={isNight} onChange={()=>setIsNight(!isNight)}/> IsNight 
+                    </label>
+                    </div>
+                    <div>
+                        <label style={{marginLeft:25}}>
+                        <input type="checkbox" checked={instructorLed} onChange={()=>setInstructorLed(!instructorLed)}/> InstructorLed 
+                    </label>
+                    </div>
           <button className="navi" onClick={CreateEntry}>Add Hours</button>
           <button className="navi" onClick={DeleteEntry}>Delete Hours</button>
 
-          <div className="item w-46 h-10">
-          <label htmlFor="remaining">Remaining Hours</label>
-          <input type="text" id="remaining" /></div>
-        
-
-        <div className="item w-46 h-10">
-          <label htmlFor="remaining">Certified Instructor </label>
-          <input type="checkbox" id="remaining" /></div>
-        </div>
-      
-        <div className="item w-46 h-10">
-          <label htmlFor="remaining">Night Time Hours</label>
-          <input type="checkbox" id="remaining" /></div>
+      <div>
+        {
+          logentries.map((le) => <CreateEntry key={le.start} entry={le}/> )
+        }
+      </div>    
          
       
-      </div>
+    
     </>
   );
 }
