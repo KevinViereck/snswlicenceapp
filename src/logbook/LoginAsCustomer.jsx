@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import nswlogo from "../img/nswlogo.png";
 import { login } from "../web-helpers";
@@ -8,13 +8,26 @@ import DeleteEntry  from "./DeleteEntry";
 
 
 export default function LoginAsInCustomer() {
-  const [logentries, setLogentries] = useState("");
+  const [licence,setLicence] = useState()
+  const [logentries, setLogentries] = useState([]);
   const [startTime, setStartTime] = useState("");
   const [endTime, setEndTime] = useState("");
   const [isNight, setIsNight] = useState("");
   const [instructorLed, setInstructorLed] = useState("");
+  const{id} = useParams()
 
-  function getLogHours(){
+
+
+useEffect(()=>{
+
+  (async()=>{
+      await getLicenceAsync()
+      await getLogHoursAsync()
+  })()
+  
+},[])
+
+async function getLogHoursAsync(){
     var login = localStorage.getItem("login")
     var loginObject = JSON.parse(login)
     var myHeaders = new Headers();
@@ -25,14 +38,47 @@ export default function LoginAsInCustomer() {
       headers: myHeaders,
       redirect: 'follow'
     };       
-      fetch(`http://localhost:8080/loghours`,config)
-        .then(response => response.json())
-        .then(json => {
-      console.log(json)
-      setLogentries(json)
-  
-  })
+    let response = await fetch(`http://localhost:8080/loghours`,config)
+    let json = await response.json()
+    debugger
+    console.log(json)
+    setLogentries(json)
 }
+
+async function getLicenceAsync(){
+  var login = localStorage.getItem("login")
+  var loginObject = JSON.parse(login)
+  var myHeaders = new Headers();
+  myHeaders.append("Authorization", "Bearer "+ loginObject.token)
+
+  const config = {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+  };       
+
+  let response = await fetch(`http://localhost:8080/logbook`,config)
+  let json = await  response.json()
+  debugger
+    console.log(json)
+    setLicence(json)
+}
+
+
+async function postEntry(){
+  let config = {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',},
+          body: JSON.stringify({ startTime, endTime, isNight, instructorLed }),
+      }
+
+      let response = await fetch(`http://localhost:8080/loghours`, config);
+      let json = await response.json();
+      await getLogHoursAsync()
+      alert("Logbook entry created");
+  }
+
 
   return (
     <>
@@ -90,12 +136,12 @@ export default function LoginAsInCustomer() {
                         <input type="checkbox" checked={instructorLed} onChange={()=>setInstructorLed(!instructorLed)}/> InstructorLed 
                     </label>
                     </div>
-          <button className="navi" onClick={CreateEntry}>Add Hours</button>
-          <button className="navi" onClick={DeleteEntry}>Delete Hours</button>
+          <button className="navi" onClick={postEntry}>Add Hours</button>
+          <button className="navi" onClick={()=>{}}>Delete Hours</button>
 
       <div>
         {
-          logentries.map((le) => <CreateEntry key={le.start} entry={le}/> )
+          logentries.map((le) => <div key={le._id}>{JSON.stringify(le)}</div>)
         }
       </div>    
          
