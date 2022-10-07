@@ -6,7 +6,7 @@ export default function DeleteEntry(){
     const [logbook, setLogBook] = useOutletContext();
 
 function deleteProduct(){
-       fetch(`http://localhost:8080/logbook/${id}`, {method: "DELETE"});
+       fetch(`http://localhost:8080/licences/${id}`, {method: "DELETE"});
        navigate(-1)
     }
 
