@@ -10,11 +10,12 @@ import DeleteEntry from './logbook/DeleteEntry';
 import NewUserRegistered from './registration/NewUserRegistered';
 import { loginStorageKey } from './web-helpers';
 import LoginAsInCustomer from './logbook/LoginAsCustomer';
+import React from 'react';
 import nswlogo from "./img/nswlogo.png";
 import PracticeLogEntry from './logbook/PracticeLogEntry';
 
 
-
+export const TokenContext = React.createContext()
 
 
 function App() {
