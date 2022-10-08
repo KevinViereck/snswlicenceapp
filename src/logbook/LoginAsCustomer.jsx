@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import nswlogo from "../img/nswlogo.png";
+import { calculateTotalHours } from "../helpers";
+
 export default function LoginAsInCustomer() {
   const [licence, setLicence] = useState();
   const [logentries, setLogentries] = useState([]);
