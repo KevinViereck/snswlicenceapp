@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 
 export default function NewUserRegistered(){
 
-   
+   let token= JSON.parse(localStorage.getItem('token'))
 
     const[firstName, setFirstName] = useState('')
     const {id} = useParams('')
@@ -13,7 +13,7 @@ export default function NewUserRegistered(){
         <>
             <p> enter your log hours </p>
 
-            <p style={{margin:'0px 15px'}}>Logged in as {}</p>
+            <p style={{margin:'0px 15px'}}>Logged in as {token}</p>
             
             <p> your log history </p>
         </>
