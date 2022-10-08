@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { calculateTotalHours } from "../helpers";
 import nswlogo from "../img/nswlogo.png";
+
+
 export default function LoginAsInCustomer() {
   const [licence, setLicence] = useState();
   const [logentries, setLogentries] = useState([]);
@@ -133,6 +136,8 @@ export default function LoginAsInCustomer() {
         </div>
       </div>
       <br></br>
+
+      <p> { calculateTotalHours }</p>
       <p> Log Book Details htmlFor USER </p>
       <div>
         <label> Start: </label>
