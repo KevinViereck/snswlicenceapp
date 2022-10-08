@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import nswlogo from "../img/nswlogo.png";
-import { calculateTotalHours } from "../helpers";
-
 export default function LoginAsInCustomer() {
   const [licence, setLicence] = useState();
   const [logentries, setLogentries] = useState([]);
@@ -79,6 +77,26 @@ export default function LoginAsInCustomer() {
       })
       .then(() => {
         getLogHoursAsync();
+      });
+  }
+  function deleteEntry(id) {
+    const login = localStorage.getItem("login");
+    const loginObject = JSON.parse(login);
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + loginObject.token);
+    const config = {
+      method: "DELETE",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+    fetch(`http://localhost:8080/loghours/${id}`, config)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Unable to delete entry");
+        }
+      })
+      .then(() => {
+        setLogentries(logentries.filter((entry) => entry._id !== id));
       });
   }
   return (
@@ -180,6 +198,11 @@ export default function LoginAsInCustomer() {
                   <td>{entry.endTime}</td>
                   <td>{entry.isNight ? "True" : "False"}</td>
                   <td>{entry.instructorLed ? "True" : "False"}</td>
+                  <td>
+                    <button onClick={() => deleteEntry(entry._id)}>
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               );
             })}
@@ -187,5 +210,5 @@ export default function LoginAsInCustomer() {
         </table>
       </div>
     </>
-  );
+  )
 }
