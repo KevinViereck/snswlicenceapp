@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 
 export default function NewUserRegistered(){
 
-   let token= JSON.parse(localStorage.getItem('token'))
+   let token= JSON.parse(localStorage.getItem('email'))
 
     const[firstName, setFirstName] = useState('')
     const {id} = useParams('')

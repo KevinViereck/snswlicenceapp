@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { calculateTotalHours } from "../helpers";
 import nswlogo from "../img/nswlogo.png";
+import CreateEntry from "./CreateEntry";
 
 
 export default function LoginAsInCustomer() {
@@ -13,95 +14,109 @@ export default function LoginAsInCustomer() {
   const [isNight, setIsNight] = useState(false);
   const [instructorLed, setInstructorLed] = useState(false);
   const { id } = useParams();
-  useEffect(() => {
-    getLogHoursAsync();
-  }, []);
-  function getLogHoursAsync() {
-    const login = localStorage.getItem("login");
-    const loginObject = JSON.parse(login);
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + loginObject.token);
-    const config = {
-      method: "GET",
-      headers: myHeaders,
-      redirect: "follow",
-    };
-    fetch(`http://localhost:8080/loghours`, config)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Unable to fetch entries from database");
-        }
-        return response.json();
-      })
-      .then((json) => {
-        console.log(json);
-        setLogentries(json);
-      });
+  // useEffect(() => {
+  //   getLogHoursAsync();
+  // }, []);
+  // function getLogHoursAsync() {
+  //   const login = localStorage.getItem("login");
+  //   const loginObject = JSON.parse(login);
+  //   const myHeaders = new Headers();
+  //   myHeaders.append("Authorization", "Bearer " + loginObject.token);
+  //   const config = {
+  //     method: "GET",
+  //     headers: myHeaders,
+  //     redirect: "follow",
+  //   };
+  //   fetch(`http://localhost:8080/loghours`, config)
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Unable to fetch entries from database");
+  //       }
+  //       return response.json();
+  //     })
+  //     .then((json) => {
+  //       console.log(json);
+  //       setLogentries(json);
+  //     });
+  // }
+  // async function getLicenceAsync() {
+  //   const login = localStorage.getItem("login");
+  //   const loginObject = JSON.parse(login);
+  //   const myHeaders = new Headers();
+  //   myHeaders.append("Authorization", "Bearer " + loginObject.token);
+  //   const config = {
+  //     method: "GET",
+  //     headers: myHeaders,
+  //     redirect: "follow",
+  //   };
+  //   const response = await fetch(`http://localhost:8080/loghours`, config);
+  //   const json = await response.json();
+  //   console.log(json);
+  //   setLicence(json);
+  // }
+  // async function postEntry() {
+  //   const login = localStorage.getItem("login");
+  //   const loginObject = JSON.parse(login);
+  //   const myHeaders = new Headers();
+  //   myHeaders.append("Authorization", "Bearer " + loginObject.token);
+  //   myHeaders.append("Content-Type", "application/json");
+  //   const config = {
+  //     method: "POST",
+  //     headers: myHeaders,
+  //     body: JSON.stringify({
+  //       // Sends the date back in milliseconds
+  //       startTime: Date.parse(startTime),
+  //       // Sends the date back in milliseconds
+  //       endTime: Date.parse(endTime),
+  //       isNight: isNight,
+  //       instructorLed: instructorLed,
+  //     }),
+  //   };
+  //   fetch(`http://localhost:8080/loghours`, config)
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Unable to add entry to database");
+  //       }
+  //       alert("Logbook entry created");
+  //     })
+  //     .then(() => {
+  //       getLogHoursAsync();
+  //     });
+  // }
+  // function deleteEntry(id) {
+  //   const login = localStorage.getItem("login");
+  //   const loginObject = JSON.parse(login);
+  //   const myHeaders = new Headers();
+  //   myHeaders.append("Authorization", "Bearer " + loginObject.token);
+  //   const config = {
+  //     method: "DELETE",
+  //     headers: myHeaders,
+  //     redirect: "follow",
+  //   };
+  //   fetch(`http://localhost:8080/loghours/${id}`, config)
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Unable to delete entry");
+  //       }
+  //     })
+  //     .then(() => {
+  //       setLogentries(logentries.filter((entry) => entry._id !== id));
+  //     });
+  // }
+
+  function handleSubmit(){
+    return(
+      <> 
+        <Link to="/create"> {<CreateEntry />} </Link>
+       
+      </>
+      
+    )
   }
-  async function getLicenceAsync() {
-    const login = localStorage.getItem("login");
-    const loginObject = JSON.parse(login);
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + loginObject.token);
-    const config = {
-      method: "GET",
-      headers: myHeaders,
-      redirect: "follow",
-    };
-    const response = await fetch(`http://localhost:8080/loghours`, config);
-    const json = await response.json();
-    console.log(json);
-    setLicence(json);
-  }
-  async function postEntry() {
-    const login = localStorage.getItem("login");
-    const loginObject = JSON.parse(login);
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + loginObject.token);
-    myHeaders.append("Content-Type", "application/json");
-    const config = {
-      method: "POST",
-      headers: myHeaders,
-      body: JSON.stringify({
-        // Sends the date back in milliseconds
-        startTime: Date.parse(startTime),
-        // Sends the date back in milliseconds
-        endTime: Date.parse(endTime),
-        isNight: isNight,
-        instructorLed: instructorLed,
-      }),
-    };
-    fetch(`http://localhost:8080/loghours`, config)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Unable to add entry to database");
-        }
-        alert("Logbook entry created");
-      })
-      .then(() => {
-        getLogHoursAsync();
-      });
-  }
-  function deleteEntry(id) {
-    const login = localStorage.getItem("login");
-    const loginObject = JSON.parse(login);
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + loginObject.token);
-    const config = {
-      method: "DELETE",
-      headers: myHeaders,
-      redirect: "follow",
-    };
-    fetch(`http://localhost:8080/loghours/${id}`, config)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Unable to delete entry");
-        }
-      })
-      .then(() => {
-        setLogentries(logentries.filter((entry) => entry._id !== id));
-      });
-  }
+
+
+
+
   return (
     <>
       <div className="content-center">
@@ -177,9 +192,17 @@ export default function LoginAsInCustomer() {
           InstructorLed
         </label>
       </div>
-      <button className="navi" onClick={postEntry}>
+      <div> 
+        <Link to="/create"> 
+        <button className="navi">
         Add Hours
       </button>
+        </Link>
+      {/* <button className="navi">
+        Add Hours
+      </button> */}
+      </div>
+      
       <button className="navi" onClick={() => {}}>
         Delete Hours
       </button>
@@ -204,9 +227,9 @@ export default function LoginAsInCustomer() {
                   <td>{entry.isNight ? "True" : "False"}</td>
                   <td>{entry.instructorLed ? "True" : "False"}</td>
                   <td>
-                    <button onClick={() => deleteEntry(entry._id)}>
+                    {/* <button onClick={() => deleteEntry(entry._id)}>
                       Delete
-                    </button>
+                    </button> */}
                   </td>
                 </tr>
               );
