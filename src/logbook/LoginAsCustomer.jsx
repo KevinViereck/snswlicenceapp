@@ -139,8 +139,8 @@ export default function LoginAsInCustomer() {
               return (
                 <tr key={entry._id}>
                   <td>{entry.licenceId}</td>
-                  <td>{entry.startTime}</td>
-                  <td>{entry.endTime}</td>
+                  <td>{new Date(entry.startTime).toLocaleString()}</td>
+                  <td>{new Date(entry.endTime).toLocaleString()}</td>
                   <td>{entry.isNight ? "True" : "False"}</td>
                   <td>{entry.instructorLed ? "True" : "False"}</td>
                   <td>
