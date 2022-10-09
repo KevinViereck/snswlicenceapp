@@ -117,7 +117,7 @@ export default function LoginAsInCustomer() {
       <br></br>
 
       <p> {calculateTotalHours(getTotalMilliseconds(logentries))}</p>
-      <p> Log Book Details for {token.email} </p>
+      <p> Log Book Details for user </p>
 
       <button className="navi" onClick={() => navigate("/create")}>
         Add Hours
