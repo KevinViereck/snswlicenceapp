@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import nswlogo from "../img/nswlogo.png";
 import { Link } from "react-router-dom";
+import { loginStorageKey } from "../web-helpers";
 
 export default function Register() {
   const [firstName, setFirstName] = useState("");
@@ -24,7 +25,7 @@ export default function Register() {
         firstName,
         lastName,
         email,
-        dateOfBirth,
+        dateOfBirth: Date.parse(dateOfBirth),
         mobile,
         password,
       }),
@@ -32,9 +33,11 @@ export default function Register() {
 
     let response = await fetch(`http://localhost:8080/user/register`, config);
 
-    let json = await response.json();
+    let token = await response.json();
+    localStorage.setItem(loginStorageKey, JSON.stringify(token));
+
     alert("User Registered");
-    navigate("/newuserregistered");
+    navigate("/loginAsCustomer");
   }
 
   return (
@@ -75,148 +78,157 @@ export default function Register() {
       <br></br>
 
       {/* Start coding register box here */}
-      <div className="register-main">
-          <p className="text-gray-600 pt-2">Please Register here</p>
-   <br></br>
-          <div className="w-56 relative group">
-          
-            <input
-            
-              type="text"
-              id="firstname" 
-              required className="w-full h-10 text-sm peer bg-gray-200 rounded 
+      <form
+        className="register-main"
+        onSubmit={(e) => {
+          getData();
+          e.preventDefault();
+      
+        }}
+      >
+        <p className="text-gray-600 pt-2">Please Register here</p>
+        <br></br>
+        <div className="w-56 relative group">
+          <input
+            type="text"
+            id="firstname"
+            required
+            className="w-full h-10 text-sm peer bg-gray-200 rounded 
               flex items-stretch
              focus:outline-none border-b-4 border-gray-300
                focus:border-blue-900 transition duration-500 px-3 pb-3"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />   
-            
-            <label htmlFor="firstname" className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+
+          <label
+            htmlFor="firstname"
+            className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
             peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
             group-focus-within:-translate-y-full peer-valid:-translate-y-full 
-            group-focus-within:pl-0 peer-valid:pl-0">Please enter First Name</label>
-          </div>
-          <br></br>
-          <div className="w-56 relative group">
-          
+            group-focus-within:pl-0 peer-valid:pl-0"
+          >
+            Please enter First Name
+          </label>
+        </div>
+        <br></br>
+        <div className="w-56 relative group">
           <input
-           
             type="text"
-            id="lastname" 
-            required className="w-full h-10 text-sm peer bg-gray-200 rounded 
+            id="lastname"
+            required
+            className="w-full h-10 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
-          />   
-        
-          <label htmlFor="lastname" className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+          />
+
+          <label
+            htmlFor="lastname"
+            className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
           peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
           group-focus-within:-translate-y-full peer-valid:-translate-y-full 
-          group-focus-within:pl-0 peer-valid:pl-0">Please enter Last Name</label>
+          group-focus-within:pl-0 peer-valid:pl-0"
+          >
+            Please enter Last Name
+          </label>
         </div>
-<br></br>
+        <br></br>
         <div className="w-56 relative group">
-          
           <input
-          
             type="text"
-            id="email" 
-            required className="w-full h-10 text-sm peer bg-gray-200 rounded 
+            id="email"
+            required
+            className="w-full h-10 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          />   
-        
-          <label htmlFor="lastname" className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+          />
+
+          <label
+            htmlFor="lastname"
+            className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
           peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
           group-focus-within:-translate-y-full peer-valid:-translate-y-full 
-          group-focus-within:pl-0 peer-valid:pl-0">Please enter Email</label>
+          group-focus-within:pl-0 peer-valid:pl-0"
+          >
+            Please enter Email
+          </label>
         </div>
 
-<br></br>   
+        <br></br>
 
-<div className="w-56 relative group">
-          
+        <div className="w-56 relative group">
           <input
-          
             type="text"
-            id="mobile" 
-            required className="w-full h-10 text-sm peer bg-gray-200 rounded 
+            id="mobile"
+            required
+            className="w-full h-10 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
             value={mobile}
             onChange={(e) => setMobile(e.target.value)}
-          />   
-        
-          <label htmlFor="mobile" className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+          />
+
+          <label
+            htmlFor="mobile"
+            className="transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
           peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
           group-focus-within:-translate-y-full peer-valid:-translate-y-full 
-          group-focus-within:pl-0 peer-valid:pl-0">Please enter Mobile Number</label>
+          group-focus-within:pl-0 peer-valid:pl-0"
+          >
+            Please enter Mobile Number
+          </label>
         </div>
 
-<br></br>   
+        <br></br>
 
-<div className="w-56 relative group">
-          
+        <div className="w-56 relative group">
           <input
-          
             type="date"
-            id="dateofbirth" 
-            required className="placeholder w-full h-10 text-sm peer bg-gray-200 rounded 
+            id="dateofbirth"
+            required
+            className="placeholder w-full h-10 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
             value={dateOfBirth}
             onChange={(e) => setDateOfBirth(e.target.value)}
-          />   
-        
-          <label htmlFor="dateofbirth" className="placeholder transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
+          />
+
+          <label
+            htmlFor="dateofbirth"
+            className="placeholder transform transition-all absolute top-0 left-0 h-full flex items-center pl-2 text-sm group-focus-within:text-xs 
           peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 
           group-focus-within:-translate-y-full peer-valid:-translate-y-full 
-          group-focus-within:pl-0 peer-valid:pl-0"></label>
+          group-focus-within:pl-0 peer-valid:pl-0"
+          ></label>
         </div>
-        
-          <div className="w-56 relative group">
-            <label> Password: </label>
-            <input
+
+        <div className="w-56 relative group">
+          <label> Password: </label>
+          <input
             type="password"
-            id="password" 
-            required className="register-box w-full h-10 text-sm peer bg-gray-200 rounded 
+            id="password"
+            required
+            className="register-box w-full h-10 text-sm peer bg-gray-200 rounded 
             flex items-stretch
            focus:outline-none border-b-4 border-gray-300
              focus:border-blue-900 transition duration-500 px-3 pb-3"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-
-          <br></br>
-
-
-        
-        
-          <button className="navi" onClick={getData}> Submit Registration </button>
-        
-        
-        
-        
-        
-        
-        
-        
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
 
-      
-      
-     
-       
-    
+        <br></br>
+
+        <button className="navi"> Submit Registration </button>
+      </form>
     </>
   );
 }

@@ -1,121 +1,73 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { calculateTotalHours } from "../helpers";
+import { calculateTotalHours, getTotalMilliseconds } from "../helpers";
 import nswlogo from "../img/nswlogo.png";
 import CreateEntry from "./CreateEntry";
-
+import { getLogin, logout } from "../web-helpers";
 
 export default function LoginAsInCustomer() {
-  const [licence, setLicence] = useState();
   const [logentries, setLogentries] = useState([]);
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("true");
-  const [isNight, setIsNight] = useState(false);
-  const [instructorLed, setInstructorLed] = useState(false);
   const { id } = useParams();
-  // useEffect(() => {
-  //   getLogHoursAsync();
-  // }, []);
-  // function getLogHoursAsync() {
-  //   const login = localStorage.getItem("login");
-  //   const loginObject = JSON.parse(login);
-  //   const myHeaders = new Headers();
-  //   myHeaders.append("Authorization", "Bearer " + loginObject.token);
-  //   const config = {
-  //     method: "GET",
-  //     headers: myHeaders,
-  //     redirect: "follow",
-  //   };
-  //   fetch(`http://localhost:8080/loghours`, config)
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Unable to fetch entries from database");
-  //       }
-  //       return response.json();
-  //     })
-  //     .then((json) => {
-  //       console.log(json);
-  //       setLogentries(json);
-  //     });
-  // }
-  // async function getLicenceAsync() {
-  //   const login = localStorage.getItem("login");
-  //   const loginObject = JSON.parse(login);
-  //   const myHeaders = new Headers();
-  //   myHeaders.append("Authorization", "Bearer " + loginObject.token);
-  //   const config = {
-  //     method: "GET",
-  //     headers: myHeaders,
-  //     redirect: "follow",
-  //   };
-  //   const response = await fetch(`http://localhost:8080/loghours`, config);
-  //   const json = await response.json();
-  //   console.log(json);
-  //   setLicence(json);
-  // }
-  // async function postEntry() {
-  //   const login = localStorage.getItem("login");
-  //   const loginObject = JSON.parse(login);
-  //   const myHeaders = new Headers();
-  //   myHeaders.append("Authorization", "Bearer " + loginObject.token);
-  //   myHeaders.append("Content-Type", "application/json");
-  //   const config = {
-  //     method: "POST",
-  //     headers: myHeaders,
-  //     body: JSON.stringify({
-  //       // Sends the date back in milliseconds
-  //       startTime: Date.parse(startTime),
-  //       // Sends the date back in milliseconds
-  //       endTime: Date.parse(endTime),
-  //       isNight: isNight,
-  //       instructorLed: instructorLed,
-  //     }),
-  //   };
-  //   fetch(`http://localhost:8080/loghours`, config)
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Unable to add entry to database");
-  //       }
-  //       alert("Logbook entry created");
-  //     })
-  //     .then(() => {
-  //       getLogHoursAsync();
-  //     });
-  // }
-  // function deleteEntry(id) {
-  //   const login = localStorage.getItem("login");
-  //   const loginObject = JSON.parse(login);
-  //   const myHeaders = new Headers();
-  //   myHeaders.append("Authorization", "Bearer " + loginObject.token);
-  //   const config = {
-  //     method: "DELETE",
-  //     headers: myHeaders,
-  //     redirect: "follow",
-  //   };
-  //   fetch(`http://localhost:8080/loghours/${id}`, config)
-  //     .then((response) => {
-  //       if (!response.ok) {
-  //         throw new Error("Unable to delete entry");
-  //       }
-  //     })
-  //     .then(() => {
-  //       setLogentries(logentries.filter((entry) => entry._id !== id));
-  //     });
-  // }
+  const navigate = useNavigate();
 
-  function handleSubmit(){
-    return(
-      <> 
-        <Link to="/create"> {<CreateEntry />} </Link>
-       
-      </>
-      
-    )
+  const token = getLogin();
+
+  function getLogHoursAsync() {
+    const login = localStorage.getItem("login");
+    const loginObject = JSON.parse(login);
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + loginObject.token);
+    const config = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+    fetch(`http://localhost:8080/loghours`, config)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Unable to fetch entries from database");
+        }
+        return response.json();
+      })
+      .then((json) => {
+        console.log(json);
+        setLogentries(json);
+      });
   }
 
+  function deleteEntry(id) {
+    const login = localStorage.getItem("login");
+    const loginObject = JSON.parse(login);
+    const myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + loginObject.token);
+    const config = {
+      method: "DELETE",
+      headers: myHeaders,
+      redirect: "follow",
+    };
+    fetch(`http://localhost:8080/loghours/${id}`, config)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Unable to delete entry");
+        }
+      })
+      .then(() => {
+        setLogentries(logentries.filter((entry) => entry._id !== id));
+      });
+  }
 
+  useEffect(() => {
+    getLogHoursAsync();
+  }, []);
 
+  // function handleSubmit() {
+  //   return (
+  //     <>
+  //       <Link to="/create"> {<CreateEntry />} </Link>
+  //     </>
+  //   );
+  // }
 
   return (
     <>
@@ -139,70 +91,37 @@ export default function LoginAsInCustomer() {
               {" "}
               <Link to="/"> Home </Link>{" "}
             </div>
-            <div className="navi">
-              {" "}
-              <Link to="/register"> Register </Link>{" "}
-            </div>
-            <div className="navi">
-              {" "}
-              <Link to="/login"> Login </Link>{" "}
-            </div>
+
+            {token ? (
+              <button
+                onClick={() => {
+                  logout();
+                  navigate("/");
+                }}
+              >
+                Logout
+              </button>
+            ) : (
+              <>
+                <div className="navi">
+                  <Link to="/register"> Register </Link>
+                </div>
+                <div className="navi">
+                  <Link to="/login"> Login </Link>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>
       <br></br>
 
-      <p> { calculateTotalHours }</p>
-      <p> Log Book Details htmlFor USER </p>
-      <div>
-        <label> Start: </label>
-        <input
-          type="datetime-local"
-          value={startTime}
-          onChange={(e) => setStartTime(e.target.value)}
-        />
-      </div>
-      <div>
-        <label> End: </label>
-        <input
-          type="datetime-local"
-          value={endTime}
-          onChange={(e) => setEndTime(e.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label style={{ marginLeft: 25 }}>
-          <input
-            type="checkbox"
-            checked={isNight}
-            onChange={() => setIsNight(!isNight)}
-            required
-          />{" "}
-          IsNight
-        </label>
-      </div>
-      <div>
-        <label style={{ marginLeft: 25 }}>
-          <input
-            type="checkbox"
-            checked={instructorLed}
-            onChange={() => setInstructorLed(!instructorLed)}
-          />{" "}
-          InstructorLed
-        </label>
-      </div>
-      <div> 
-        <Link to="/create"> 
-        <button className="navi">
+      <p> {calculateTotalHours(getTotalMilliseconds(logentries))}</p>
+      <p> Log Book Details for {token.email} </p>
+
+      <button className="navi" onClick={() => navigate("/create")}>
         Add Hours
       </button>
-        </Link>
-      {/* <button className="navi">
-        Add Hours
-      </button> */}
-      </div>
-      
       <button className="navi" onClick={() => {}}>
         Delete Hours
       </button>
@@ -227,9 +146,9 @@ export default function LoginAsInCustomer() {
                   <td>{entry.isNight ? "True" : "False"}</td>
                   <td>{entry.instructorLed ? "True" : "False"}</td>
                   <td>
-                    {/* <button onClick={() => deleteEntry(entry._id)}>
+                    <button onClick={() => deleteEntry(entry._id)}>
                       Delete
-                    </button> */}
+                    </button>
                   </td>
                 </tr>
               );
@@ -238,5 +157,5 @@ export default function LoginAsInCustomer() {
         </table>
       </div>
     </>
-  )
+  );
 }

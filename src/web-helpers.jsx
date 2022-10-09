@@ -6,11 +6,9 @@ export function getLogin() {
   if (login?.authenticated && login.token && login.email) {
     return login;
   }
-  throw Error("Not Authenticated");
 }
 
 export async function login(email, password) {
-
   const login = {
     email,
     password,
