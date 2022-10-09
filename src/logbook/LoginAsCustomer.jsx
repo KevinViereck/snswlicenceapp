@@ -93,7 +93,7 @@ export default function LoginAsInCustomer() {
             </div>
 
             {token ? (
-              <button
+              <button className="navi"
                 onClick={() => {
                   logout();
                   navigate("/");
@@ -117,14 +117,12 @@ export default function LoginAsInCustomer() {
       <br></br>
 
       <p> {calculateTotalHours(getTotalMilliseconds(logentries))}</p>
-      <p> Log Book Details for user </p>
+      <p> Log Book Details for {token.email} </p>
 
       <button className="navi" onClick={() => navigate("/create")}>
         Add Hours
       </button>
-      <button className="navi" onClick={() => {}}>
-        Delete Hours
-      </button>
+      
       <div>
         <table>
           <thead>
