@@ -37,7 +37,7 @@ export default function Register() {
     localStorage.setItem(loginStorageKey, JSON.stringify(token));
 
     alert("User Registered");
-    navigate("/loginAsCustomer");
+    navigate("/login");
   }
 
   return (
