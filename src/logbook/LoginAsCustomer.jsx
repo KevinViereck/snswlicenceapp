@@ -117,6 +117,15 @@ export default function LoginAsInCustomer() {
       </div>
       <br></br>
       <br></br>
+      <div className="register-main ">
+        {" "}
+        Log Book Details for user: {token.email}{" "}
+        <tr>
+                    {" "}
+                    Total Hours:{" "}
+                    {calculateTotalHours(getTotalMilliseconds(logentries))}
+                  </tr>
+      </div>
       
       <br></br>
       <button className="navi" onClick={() => navigate("/create")}>
@@ -124,40 +133,40 @@ export default function LoginAsInCustomer() {
       </button>
 
       <div className="logbook-box">
-      
-      <div className="text-left"> Log Book Details for user: {token.email} </div>
-      <br></br>
-        <div class="flex flex-wrap -mx-4 text-left bg-gray-100 border-b text-sm text-gray-600">
-          <tbody className="w-full px-4">
+        <br></br>
+        <div className="flex flex-wrap text-left bg-gray-50 text-sm">
+          <tbody className="w-auto px-4">
             {logentries.map((entry) => {
               return (
                 <div key={entry._id}>
-                  <div class="">
+                  <div className="">
                     Licence Id: {entry.licenceId}
-                    <div class="col-span-2">
+                    <div className="col-span-2">
                       Start Time: {new Date(entry.startTime).toLocaleString()}
-                      <div class="col-span-2">
+                      <div className="col-span-2">
                         {" "}
-                        <div class="col-span-2" >End Time:{new Date(entry.endTime).toLocaleString()}</div></div>
-          
-                   
+                        <div className="col-span-2">
+                          End Time:{new Date(entry.endTime).toLocaleString()}
+                        </div>
+                      </div>
                     </div>
                   </div>
-
-                  <tr class="col-span-2 ">
+                  <tr className="col-span-2 ">
                     Night Time Hours? {entry.isNight ? "True" : "False"}
                   </tr>
-                  <td class="col-span-2">
-                    Instructor Led Hours? {entry.instructorLed ? "True" : "False"}
+                  <td className="col-span-2">
+                    Instructor Led Hours?{" "}
+                    {entry.instructorLed ? "True" : "False"}
                   </td>
-                  <tr> Total Hours: {calculateTotalHours(getTotalMilliseconds(logentries))}</tr>
-                  <br></br>
+               
                   <button
                     className="navi"
                     onClick={() => deleteEntry(entry._id)}
                   >
                     Delete
                   </button>
+                  <br></br>
+                  &nbsp;
                 </div>
               );
             })}

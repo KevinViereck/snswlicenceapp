@@ -42,7 +42,6 @@ export default function CreateEntry() {
 
   return (
     <>
-    <div className="logbook-box">
       <form
         action=""
         onSubmit={(e) => {
@@ -80,12 +79,9 @@ export default function CreateEntry() {
           />{" "}
           InstructorLed
         </label>
-      
+        <button className="navi">Add Hours</button>
       </form>
-      <br></br>
-      <button className="navi">Add Hours</button>
-     
-      </div>
+      
     </>
   );
 }
