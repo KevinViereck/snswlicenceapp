@@ -93,7 +93,8 @@ export default function LoginAsInCustomer() {
             </div>
 
             {token ? (
-              <button className="navi"
+              <button
+                className="navi"
                 onClick={() => {
                   logout();
                   navigate("/");
@@ -115,44 +116,53 @@ export default function LoginAsInCustomer() {
         </div>
       </div>
       <br></br>
-
-      <p> {calculateTotalHours(getTotalMilliseconds(logentries))}</p>
-      <p> Log Book Details for {token.email} </p>
-
+      <br></br>
+      
+      <br></br>
       <button className="navi" onClick={() => navigate("/create")}>
         Add Hours
       </button>
+
+      <div className="logbook-box">
       
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Licence Id:</th>
-              <th>Start Time:</th>
-              <th>End Time:</th>
-              <th>Is Night:</th>
-              <th>Instructor Led:</th>
-            </tr>
-          </thead>
-          <tbody>
+      <div className="text-left"> Log Book Details for user: {token.email} </div>
+      <br></br>
+        <div class="flex flex-wrap -mx-4 text-left bg-gray-100 border-b text-sm text-gray-600">
+          <tbody className="w-full px-4">
             {logentries.map((entry) => {
               return (
-                <tr key={entry._id}>
-                  <td>{entry.licenceId}</td>
-                  <td>{new Date(entry.startTime).toLocaleString()}</td>
-                  <td>{new Date(entry.endTime).toLocaleString()}</td>
-                  <td>{entry.isNight ? "True" : "False"}</td>
-                  <td>{entry.instructorLed ? "True" : "False"}</td>
-                  <td>
-                    <button onClick={() => deleteEntry(entry._id)}>
-                      Delete
-                    </button>
+                <div key={entry._id}>
+                  <div class="">
+                    Licence Id: {entry.licenceId}
+                    <div class="col-span-2">
+                      Start Time: {new Date(entry.startTime).toLocaleString()}
+                      <div class="col-span-2">
+                        {" "}
+                        <div class="col-span-2" >End Time:{new Date(entry.endTime).toLocaleString()}</div></div>
+          
+                   
+                    </div>
+                  </div>
+
+                  <tr class="col-span-2 ">
+                    Night Time Hours? {entry.isNight ? "True" : "False"}
+                  </tr>
+                  <td class="col-span-2">
+                    Instructor Led Hours? {entry.instructorLed ? "True" : "False"}
                   </td>
-                </tr>
+                  <tr> Total Hours: {calculateTotalHours(getTotalMilliseconds(logentries))}</tr>
+                  <br></br>
+                  <button
+                    className="navi"
+                    onClick={() => deleteEntry(entry._id)}
+                  >
+                    Delete
+                  </button>
+                </div>
               );
             })}
           </tbody>
-        </table>
+        </div>
       </div>
     </>
   );
